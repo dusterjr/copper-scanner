@@ -523,6 +523,36 @@ def handle_message(text, sent, state, now, status_requests):
     tg_send(reply)
 
 
+def pairing_help(state):
+    """Token set but no chat ID yet: answer each new private message with that chat's own ID, so you can
+    add it as the TELEGRAM_CHAT_ID secret. Messages stay queued, so commands you sent still count later."""
+    try:
+        updates = tg_call("getUpdates", offset=state.get("telegram_offset", 0), timeout=0,
+                          allowed_updates=["message"])
+    except Exception as e:
+        print(f"Couldn't read Telegram messages: {e}")
+        return
+    done, answered = set(state.get("pairing_replied", [])), set()
+    for u in updates:
+        if u["update_id"] in done:
+            continue
+        done.add(u["update_id"])
+        chat = (u.get("message") or {}).get("chat") or {}
+        if chat.get("type") != "private" or chat.get("id") in answered:
+            continue
+        answered.add(chat.get("id"))
+        try:
+            tg_call("sendMessage", chat_id=chat["id"], disable_web_page_preview=True, text=(
+                f"Your chat ID is {chat['id']}\n\n"
+                "In GitHub, open the copper-scanner repo: Settings → Secrets and variables → Actions → "
+                "New repository secret. Name it TELEGRAM_CHAT_ID and paste the number above as the secret.\n\n"
+                "Alerts start with the next scan after that."))
+        except Exception as e:
+            print(f"Telegram reply failed: {e}")
+    state["pairing_replied"] = sorted(done)[-100:]
+    print(f"Telegram pairing: replied to {len(answered)} chat(s) with their chat ID.")  # IDs stay out of the public log
+
+
 def process_updates(state, now):
     """Read Telegram messages since the last run (only from your chat), before any alert goes out."""
     if not telegram_ready():
@@ -677,6 +707,8 @@ def main():
     state = load_json(STATE, {})
     previous = load_json(LATEST, {})
 
+    if TG_TOKEN and not TG_CHAT:
+        pairing_help(state)
     if telegram_ready() and not state.get("setup_done"):
         if tg_send("Setup complete. You'll get copper alerts on weekends (Friday 4 PM to Sunday 5 PM Chicago). "
                    "Send /help to see what you can reply.\n" + PAGE_URL, "remove"):

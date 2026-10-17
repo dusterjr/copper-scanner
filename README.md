@@ -47,13 +47,11 @@ The scanner reads messages once an hour, at the start of each scan and before an
 1. **Turn on the page.** In this repo: Settings → Pages → Source: "Deploy from a branch" → branch `main`, folder `/ (root)` → Save. The page goes live within a few minutes.
 2. **Create your Telegram bot.**
    - In Telegram, message **@BotFather** and send `/newbot`. Pick a name (for example, "Isaac copper alerts") and a username ending in `bot`. BotFather replies with a **token**, a long code. Keep it private, and never paste it into a chat.
-   - Open your new bot and send it `hi`. Bots can't message you first.
-   - Message **@userinfobot** to get your **chat ID**, a number.
-3. **Give GitHub the bot's details.** In this repo: Settings → Secrets and variables → Actions → New repository secret. Add two secrets:
-   - `TELEGRAM_BOT_TOKEN`: the token
-   - `TELEGRAM_CHAT_ID`: the chat ID
-4. **Test it.** Actions tab → Copper scan → Run workflow. Within a couple of minutes you should get "Setup complete" in Telegram, and the page should show the latest scan.
-5. **Put it on your phone.** Open the page in Safari → Share → Add to Home Screen. On Android: Chrome menu → Add to Home screen.
+   - Open your new bot, tap **Start** and send it `hi`. Bots can't message you first.
+3. **Give GitHub the token.** In this repo: Settings → Secrets and variables → Actions → New repository secret. Name: `TELEGRAM_BOT_TOKEN`. Secret: the token.
+4. **Get your chat ID from the bot.** Actions tab → Copper scan → Run workflow (or wait for the next hourly scan). Your bot replies "Your chat ID is …". Add that number as a second secret named `TELEGRAM_CHAT_ID`.
+5. **Test it.** Run the workflow again. Within a couple of minutes you should get "Setup complete" in Telegram, plus replies to anything you sent the bot earlier.
+6. **Put it on your phone.** Open the page in Safari → Share → Add to Home Screen. On Android: Chrome menu → Add to Home screen.
 
 ## Running a scan yourself
 
