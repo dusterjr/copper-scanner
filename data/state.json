@@ -21,17 +21,18 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-17T15:28:55+00:00"
+  "checked_utc": "2026-10-17T15:59:52+00:00"
  },
  "pairing_replied": [
   35259757
  ],
  "setup_done": true,
- "telegram_offset": 35259759,
+ "telegram_offset": 35259762,
  "price_override": {
   "week": "KXCOPPERW-26OCT2317",
   "price": 6.58,
   "until": "2026-10-18T22:00:00+00:00",
   "set_utc": "2026-10-17T09:25:35+00:00"
- }
+ },
+ "weekday_alerts": true
 }
