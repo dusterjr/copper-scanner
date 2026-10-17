@@ -1,0 +1,13 @@
+{
+ "failure": {
+  "since": null,
+  "alerted": false
+ },
+ "current_week": "KXCOPPERW-26OCT2317",
+ "window": {
+  "week": "KXCOPPERW-26OCT2317",
+  "in_window": true,
+  "reopen_utc": "2026-10-18T22:00:00+00:00"
+ },
+ "weeks": {}
+}
