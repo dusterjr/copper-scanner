@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Copper scanner</title>
+<meta name="description" content="Weekend scanner for Kalshi's weekly copper contracts">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Copper">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1f1f1d" media="(prefers-color-scheme: dark)">
+<style>
+:root{--bg:#ffffff;--surface:#f5f4ef;--text:#1f1e1d;--text-2:#5f5e5a;--text-3:#8a8983;--border:rgba(31,30,29,.15);--border-strong:rgba(31,30,29,.3);
+--ok-bg:#eaf3de;--ok:#27500a;--acc-bg:#e6f1fb;--acc:#0c447c;--bad-bg:#fcebeb;--bad:#791f1f;--warn-bg:#faeeda;--warn:#633806;--radius:8px}
+@media (prefers-color-scheme:dark){:root{--bg:#1f1f1d;--surface:#2b2b29;--text:#f1efe8;--text-2:#b4b2a9;--text-3:#888780;--border:rgba(241,239,232,.14);--border-strong:rgba(241,239,232,.3);
+--ok-bg:#173404;--ok:#c0dd97;--acc-bg:#042c53;--acc:#b5d4f4;--bad-bg:#501313;--bad:#f7c1c1;--warn-bg:#412402;--warn:#fac775}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+.app{max-width:440px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);margin-bottom:14px;gap:8px}
+button{font:inherit;color:var(--text);background:transparent;border:.5px solid var(--border-strong);border-radius:var(--radius);height:34px;padding:0 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+button:active{transform:scale(.98)}
+button.small{height:28px;font-size:12px;padding:0 10px}
+input{font:inherit;color:var(--text);background:var(--bg);border:.5px solid var(--border-strong);border-radius:var(--radius);height:34px;padding:0 10px;min-width:0;flex:1}
+input::placeholder{color:var(--text-3)}
+h1{font-size:18px;font-weight:500;margin:0}
+.sub{font-size:13px;color:var(--text-2);margin:2px 0 10px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 10px;border-radius:var(--radius);margin-bottom:14px}
+.pill.open{background:var(--ok-bg);color:var(--ok)}.pill.closed{background:var(--surface);color:var(--text-2)}
+.note{font-size:13px;border-radius:12px;padding:10px 12px;margin-bottom:12px}
+.note.warn{background:var(--warn-bg);color:var(--warn)}.note.info{background:var(--surface);color:var(--text-2)}
+.note a{color:inherit}
+.card{background:var(--surface);border-radius:12px;padding:12px;margin-bottom:16px}
+.label{font-size:12px;color:var(--text-2)}
+.big{font-size:26px;font-weight:500;line-height:1.2}
+.muted{font-size:12px;color:var(--text-3)}
+.row{display:flex;gap:8px;margin-top:4px}
+.err{font-size:13px;color:var(--bad);margin-top:4px}
+h2{font-size:15px;font-weight:500;margin:0 0 8px}h2 span{font-weight:400;color:var(--text-3)}
+.bet{border:.5px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.bet-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.bet-head b{font-size:15px;font-weight:500}
+.tag{font-size:12px;padding:2px 8px;border-radius:var(--radius);white-space:nowrap}
+.tag.yes{background:var(--acc-bg);color:var(--acc)}.tag.no{background:var(--bad-bg);color:var(--bad)}.tag.done{background:var(--ok-bg);color:var(--ok)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:6px;font-size:12px;color:var(--text-2)}
+.good{color:var(--ok)}
+.empty{font-size:13px;color:var(--text-2);margin:0 0 16px}
+details{border-top:.5px solid var(--border);padding-top:10px;margin-top:6px}
+summary{font-size:13px;color:var(--text-2);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+details[open] summary svg.chev{transform:rotate(180deg)}
+.paper{border:.5px solid var(--border);border-radius:12px;padding:8px 12px;margin-top:6px;font-size:12px;color:var(--text-3);display:flex;justify-content:space-between;gap:8px}
+.section{margin-top:6px}
+footer{font-size:11px;color:var(--text-3);margin-top:14px;line-height:1.6}
+footer a{color:var(--text-2)}
+svg{width:14px;height:14px;flex:none}
+.spin svg{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top"><span id="updated">Loading the latest scan…</span>
+    <button class="small" id="refresh" aria-label="Refresh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 4v5h5"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 5v-5h-5"/></svg>Refresh</button></div>
+  <h1>Copper weekly</h1>
+  <p class="sub" id="week">&nbsp;</p>
+  <div id="window"></div>
+  <div id="notes"></div>
+  <div id="price"></div>
+  <div id="bets"></div>
+  <div id="extra"></div>
+  <footer id="foot"></footer>
+</main>
+<script>
+const KALSHI = "https://api.elections.kalshi.com/trade-api/v2";
+const ICON = {
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+  note: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a1 1 0 0 1-1-1z"/><path d="M10 8h5M10 12h5"/></svg>',
+  chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
+};
+let data = null, live = null, typed = null, refreshNote = "";
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cents = x => Math.round(x * 100) + "¢";
+const pct = x => Math.round(x * 100) + "%";
+const fee = p => 0.07 * p * (1 - p);
+function maxPrice(pWin, thr) {
+  const c = pWin - thr; if (c <= 0) return 0;
+  const root = (1.07 - Math.sqrt(1.07 ** 2 - 4 * 0.07 * c)) / (2 * 0.07);
+  return Math.floor(root * 100 + 1e-9) / 100;
+}
+function pAbove(sorted, x) {             // share of past moves bigger than x
+  let lo = 0, hi = sorted.length;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (sorted[mid] <= x) lo = mid + 1; else hi = mid; }
+  return 1 - lo / sorted.length;
+}
+function evaluate(strikes, method, thr) {
+  const picks = [];
+  for (const s of strikes) {
+    const p = s["p_" + method];
+    const yesOk = s.yes_ask != null && s.yes_ask > 0 && s.yes_ask < 1;
+    const noOk = s.yes_bid != null && s.yes_bid > 0 && s.yes_bid < 1;
+    const noAsk = noOk ? 1 - s.yes_bid : null;
+    const eYes = yesOk ? p - s.yes_ask - fee(s.yes_ask) : -Infinity;
+    const eNo = noOk ? (1 - p) - noAsk - fee(noAsk) : -Infinity;
+    const yes = eYes >= eNo, edge = Math.max(eYes, eNo);
+    if (edge >= thr) {
+      const pWin = yes ? p : 1 - p;
+      picks.push({strike: s.strike, side: yes ? "YES" : "NO", price: yes ? s.yes_ask : noAsk, p_win: pWin, edge,
+                  max_price: maxPrice(pWin, thr), offered: yes ? s.yes_ask_size : s.yes_bid_size,
+                  key: s.strike.toFixed(2) + "|" + (yes ? "YES" : "NO")});
+    }
+  }
+  return picks;
+}
+function strikesNow() {                // scan's strikes, with live prices and a typed price applied
+  return data.strikes.map(s => {
+    const out = {...s};
+    if (live && live[s.ticker]) Object.assign(out, live[s.ticker]);
+    if (typed != null) {
+      const dist = (s.strike - typed) / typed * 100;
+      out.p_rescaled = pAbove(data.samples.rescaled, dist / data.daily_move);
+      out.p_plain = pAbove(data.samples.plain, dist);
+    }
+    return out;
+  });
+}
+const tz = {weekday: "short", hour: "numeric", minute: "2-digit"};
+const when = iso => new Date(iso).toLocaleString(undefined, tz);
+const timeOnly = iso => new Date(iso).toLocaleTimeString(undefined, {hour: "numeric", minute: "2-digit"});
+function ago(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 1) return "just now"; if (m < 60) return m + " min ago";
+  const h = Math.round(m / 60); return h < 48 ? h + (h === 1 ? " hour ago" : " hours ago") : Math.round(h / 24) + " days ago";
+}
+function windowOpen() {
+  const t = Date.now();
+  return t >= new Date(data.open_utc) && t < new Date(data.reopen_utc);
+}
+function betCard(b, acked) {
+  const done = acked && acked[b.key];
+  const tag = done ? `<span class="tag done">${done === "placed" ? "Placed" : "Seen"}</span>` : "";
+  return `<div class="bet"><div class="bet-head"><b>Above ${b.strike.toFixed(2)}</b><span style="display:flex;gap:6px">${tag}
+    <span class="tag ${b.side === "YES" ? "yes" : "no"}">Buy ${b.side === "YES" ? "Yes" : "No"}</span></span></div>
+    <div class="grid"><span>Price ${cents(b.price)}</span><span>Chance ${pct(b.p_win)}</span><span class="good">Edge +${(b.edge * 100).toFixed(1)}¢</span></div>
+    <div class="muted" style="margin-top:2px">Pay at most ${cents(b.max_price)}${b.offered != null ? " · " + Math.round(b.offered).toLocaleString() + " offered" : ""}</div></div>`;
+}
+function render() {
+  if (!data) return;
+  const open = windowOpen();
+  const strikes = strikesNow();
+  const closeD = new Date(data.close_utc);
+  $("updated").textContent = (data.status === "ok" ? "Updated " : "Last good scan ") + ago(data.last_ok_utc || data.run_utc);
+  $("week").textContent = "Week ending " + closeD.toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"}) + " · settles " + timeOnly(data.close_utc);
+  $("window").innerHTML = open
+    ? `<span class="pill open">${ICON.clock}Betting window open · closes ${esc(when(data.reopen_utc))}</span>`
+    : `<span class="pill closed">${ICON.clock}Window closed · opens ${esc(when(data.close_utc))}</span>`;
+
+  const notes = [];
+  if (data.status === "failed") notes.push(`<div class="note warn">The last scan failed (${esc(data.error || "unknown error")}). Showing the last good scan.</div>`);
+  if (data.status === "waiting") notes.push(`<div class="note info">${esc(data.error || "Waiting for next week's contracts.")}</div>`);
+  const ageH = (Date.now() - new Date(data.last_ok_utc || data.run_utc)) / 3.6e6;
+  if (ageH > 2.5) notes.push(`<div class="note warn">This scan is ${Math.round(ageH)} hours old. Tap Refresh, or check the scanner on GitHub.</div>`);
+  if (refreshNote) notes.push(`<div class="note info">${refreshNote}</div>`);
+  $("notes").innerHTML = notes.join("");
+
+  if (open) {
+    const settled = data.settlement != null ? ` · last week settled ${Number(data.settlement).toFixed(2)}` : "";
+    const src = typed != null ? "Your typed price" : data.spot_source === "telegram" ? "Your /price from Telegram" : "COMEX";
+    const shown = typed != null ? typed : data.spot;
+    $("price").innerHTML = `<div class="card"><div class="label">Copper price used</div><div class="big">${shown.toFixed(2)}</div>
+      <div class="muted" style="margin-bottom:8px">${esc(src)}${settled}</div>
+      <div class="label" style="margin-bottom:4px">Kalshi shows something else? Type it:</div>
+      <div class="row" style="margin-top:0"><input id="px" inputmode="decimal" placeholder="${data.spot.toFixed(2)}" aria-label="Kalshi copper price" value="${typed != null ? typed.toFixed(2) : ""}">
+      <button id="recalc">${typed != null ? "Update" : "Recalculate"}</button>${typed != null ? '<button id="reset">Reset</button>' : ""}</div>
+      <div class="err" id="pxerr" hidden></div></div>`;
+    const bets = evaluate(strikes, "rescaled", data.threshold);
+    $("bets").innerHTML = bets.length
+      ? `<h2>${bets.length} bet${bets.length === 1 ? "" : "s"} to take <span>· 1 contract each</span></h2>` + bets.map(b => betCard(b, data.acked)).join("")
+      : `<h2>No bets this weekend</h2><p class="empty">Nothing clears ${cents(data.threshold)} at these prices. Skipping is the rule working.</p>`;
+    const plain = evaluate(strikes, "plain", data.threshold);
+    $("extra").innerHTML = `<details><summary><span style="display:flex;gap:6px;align-items:center">${ICON.note}Plain count picks (paper only)</span>${ICON.chev}</summary>
+      ${plain.length ? plain.map(b => `<div class="paper"><span>Above ${b.strike.toFixed(2)} · ${b.side === "YES" ? "Yes" : "No"} ${cents(b.price)}</span><span>edge +${(b.edge * 100).toFixed(1)}¢</span></div>`).join("")
+        : '<div class="paper"><span>No plain count picks</span></div>'}
+      <div class="muted" style="margin-top:6px">Tracked for the live test. Don't bet these.</div></details>`;
+    $("recalc").onclick = applyTyped;
+    $("px").onkeydown = e => { if (e.key === "Enter") applyTyped(); };
+    $("px").oninput = () => { $("pxerr").hidden = true; };
+    if ($("reset")) $("reset").onclick = () => { typed = null; saveTyped(); render(); };
+  } else {
+    $("price").innerHTML = `<div class="card"><div class="label">${data.mode === "weekday" ? "Copper price now" : "Copper price at the last scan"}</div>
+      <div class="big">${Number(data.comex).toFixed(2)}</div><div class="muted">COMEX${data.mode === "weekday" ? " · copper is trading" : ""}</div></div>`;
+    const alertsOn = data.weekday_alerts;
+    $("bets").innerHTML = `<h2>No bets during the week</h2><p class="empty">${alertsOn
+      ? "Weekday alerts are on, but the backtest found no reliable weekday edge."
+      : "The backtest found no reliable weekday edge, so there are no alerts until the window opens."}</p>`;
+    const picks = data.mode === "weekday" ? data.bets : [];
+    $("extra").innerHTML = `<h2 style="font-size:13px;color:var(--text-2);display:flex;gap:6px;align-items:center">${ICON.note}Weekday picks (paper only)</h2>
+      ${picks.length ? picks.map(b => `<div class="paper"><span>Above ${b.strike.toFixed(2)} · ${b.side === "YES" ? "Yes" : "No"} ${cents(b.price)}</span><span>model +${(b.edge * 100).toFixed(1)}¢</span></div>`).join("")
+        : '<div class="paper"><span>No weekday picks at the last scan</span></div>'}
+      <div class="muted" style="margin-top:8px">Logged for the live test only · ${alertsOn ? "weekday alerts are on" : "not alerts"}</div>`;
+  }
+  const repo = data.repo || "dusterjr/copper-scanner";
+  $("foot").innerHTML = `Rule: edge of ${cents(data.threshold)} or more after fees · rescaled method<br>
+    Daily move ${Number(data.daily_move).toFixed(2)}% · ${data.horizon} trading day${data.horizon === 1 ? "" : "s"} left · ${data.n_windows.toLocaleString()} past weeks<br>
+    <a href="https://github.com/${esc(repo)}#readme">How it works</a> · <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">Run a scan on GitHub</a>`;
+}
+function applyTyped() {
+  const v = parseFloat(($("px").value || "").replace(",", "."));
+  if (!(v >= 1 && v <= 20)) { const e = $("pxerr"); e.textContent = "Enter a price like 6.58"; e.hidden = false; return; }
+  typed = Math.round(v * 10000) / 10000; saveTyped(); render();
+}
+function saveTyped() {
+  try { typed == null ? localStorage.removeItem("typed:" + data.week) : localStorage.setItem("typed:" + data.week, String(typed)); } catch (e) {}
+}
+function loadTyped() {
+  try { const v = parseFloat(localStorage.getItem("typed:" + data.week)); typed = v >= 1 && v <= 20 ? v : null; } catch (e) { typed = null; }
+}
+async function loadData() {
+  const r = await fetch("data/latest.json?t=" + Date.now(), {cache: "no-store"});
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  const d = await r.json();
+  const newWeek = !data || data.week !== d.week;
+  data = d; live = null;
+  if (newWeek) loadTyped();
+}
+async function liveKalshi() {          // weekend only: copper isn't trading, so only Kalshi's prices can move
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 7000);
+  try {
+    const r = await fetch(`${KALSHI}/markets?event_ticker=${encodeURIComponent(data.week)}&limit=1000`, {signal: ctl.signal});
+    if (!r.ok) return false;
+    const j = await r.json(); const out = {};
+    for (const m of j.markets || []) {
+      const n = v => (v == null || v === "") ? null : Number(v);
+      out[m.ticker] = {yes_bid: n(m.yes_bid_dollars), yes_ask: n(m.yes_ask_dollars), yes_bid_size: n(m.yes_bid_size_fp), yes_ask_size: n(m.yes_ask_size_fp)};
+    }
+    if (!Object.keys(out).length) return false;
+    live = out; return true;
+  } catch (e) { return false; } finally { clearTimeout(t); }
+}
+async function refresh(manual) {
+  const btn = $("refresh"); btn.classList.add("spin");
+  try {
+    await loadData();
+    refreshNote = "";
+    if (manual && windowOpen()) {
+      const ok = await liveKalshi();
+      const repo = data.repo || "dusterjr/copper-scanner";
+      refreshNote = ok ? `Prices live from Kalshi at ${timeOnly(new Date().toISOString())}.`
+        : `Couldn't reach Kalshi from here, so prices are from the last scan. <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">Run a fresh scan on GitHub</a> (about 2 minutes).`;
+    } else if (manual) {
+      const repo = data.repo || "dusterjr/copper-scanner";
+      refreshNote = `Reloaded. For a brand-new scan, <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">run one on GitHub</a>.`;
+    }
+  } catch (e) {
+    if (!data) { $("updated").textContent = "Couldn't load the scan. Check your connection and tap Refresh."; }
+    else refreshNote = "Couldn't reload the scan. Showing what's already here.";
+  } finally { btn.classList.remove("spin"); render(); }
+}
+$("refresh").onclick = () => refresh(true);
+refresh(false);
+setInterval(() => { if (document.visibilityState === "visible") render(); }, 60000);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && data && (Date.now() - new Date(data.run_utc)) > 30 * 60000) refresh(false); });
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
+</body>
+</html>
