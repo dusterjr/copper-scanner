@@ -9,5 +9,12 @@
   "in_window": true,
   "reopen_utc": "2026-10-18T22:00:00+00:00"
  },
- "weeks": {}
+ "weeks": {},
+ "telegram": {
+  "token_set": true,
+  "token_looks_valid": false,
+  "chat_id_set": false,
+  "last_error": "getUpdates: Not Found",
+  "checked_utc": "2026-10-17T09:18:07+00:00"
+ }
 }
