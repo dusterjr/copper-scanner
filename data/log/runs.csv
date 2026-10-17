@@ -8,3 +8,4 @@ run_utc,week,mode,status,spot,spot_source,comex,settlement,daily_move,horizon,n_
 2026-10-17T09:33:39+00:00,KXCOPPERW-26OCT2317,weekend,ok,6.58,telegram,6.562,6.65,0.8401,5,0,0,0,
 2026-10-17T10:43:44+00:00,KXCOPPERW-26OCT2317,weekend,ok,6.58,telegram,6.562,6.65,0.8401,5,0,0,0,
 2026-10-17T10:45:33+00:00,KXCOPPERW-26OCT2317,weekend,ok,6.58,telegram,6.562,6.65,0.8401,5,0,0,0,
+2026-10-17T12:55:35+00:00,KXCOPPERW-26OCT2317,weekend,ok,6.58,telegram,6.5735,6.65,0.8401,5,0,0,0,
