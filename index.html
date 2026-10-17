@@ -52,6 +52,14 @@ summary{font-size:13px;color:var(--text-2);cursor:pointer;list-style:none;displa
 summary::-webkit-details-marker{display:none}
 details[open] summary svg.chev{transform:rotate(180deg)}
 .paper{border:.5px solid var(--border);border-radius:12px;padding:8px 12px;margin-top:6px;font-size:12px;color:var(--text-3);display:flex;justify-content:space-between;gap:8px}
+select{font:inherit;color:var(--text);background:var(--bg);border:.5px solid var(--border-strong);border-radius:var(--radius);height:34px;padding:0 8px;min-width:0;flex:1}
+.srow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;align-items:center;font-size:12px;color:var(--text-2);padding:6px 0;border-top:.5px solid var(--border)}
+.srow.hd{border-top:0;padding-top:2px;font-size:11px;color:var(--text-3)}
+.srow>span:last-child{text-align:right;font-weight:500}
+.srow .tag{justify-self:start;font-size:11px;padding:1px 7px}
+.near{color:var(--text-2)}.loss{color:var(--bad)}
+.legend{display:flex;gap:12px;font-size:11px;color:var(--text-3);margin:10px 0 4px}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
 .section{margin-top:6px}
 footer{font-size:11px;color:var(--text-3);margin-top:14px;line-height:1.6}
 footer a{color:var(--text-2)}
@@ -69,6 +77,7 @@ svg{width:14px;height:14px;flex:none}
   <div id="notes"></div>
   <div id="price"></div>
   <div id="bets"></div>
+  <div id="all"></div>
   <div id="extra"></div>
   <footer id="foot"></footer>
 </main>
@@ -77,9 +86,12 @@ const KALSHI = "https://api.elections.kalshi.com/trade-api/v2";
 const ICON = {
   clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
   note: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a1 1 0 0 1-1-1z"/><path d="M10 8h5M10 12h5"/></svg>',
-  chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
+  chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>'
 };
+const PAGE_VERSION = "v2";
 let data = null, live = null, typed = null, refreshNote = "";
+let allOpen = false, allModel = "rescaled", allFar = false;   // all-strikes list: open or not, which model, far strikes shown
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -147,6 +159,33 @@ function betCard(b, acked) {
     <div class="grid"><span>Price ${cents(b.price)}</span><span>Chance ${pct(b.p_win)}</span><span class="good">Edge +${(b.edge * 100).toFixed(1)}¢</span></div>
     <div class="muted" style="margin-top:2px">Pay at most ${cents(b.max_price)}${b.offered != null ? " · " + Math.round(b.offered).toLocaleString() + " offered" : ""}</div></div>`;
 }
+function edgeCell(e, thr) {            // same rounding as the bet cards; green clears the rule, red loses money
+  const s = (e * 100).toFixed(1), c = parseFloat(s);
+  const cls = e >= thr ? "good" : c >= 0 ? "near" : "loss";
+  return `<span class="${cls}">${c > 0 ? "+" + s : c < 0 ? "−" + s.slice(1) : "0.0"}¢</span>`;
+}
+function renderAll() {                 // every strike with a price, scored exactly like the bet cards
+  const box = $("all");
+  if (!data || !windowOpen()) { box.innerHTML = ""; return; }
+  const thr = data.threshold;
+  const rows = evaluate(strikesNow(), allModel, -1).sort((a, b) => b.edge - a.edge);  // -1 is below any possible edge, so nothing is filtered out
+  if (!rows.length) { box.innerHTML = ""; return; }
+  const main = rows.filter(r => r.p_win >= 0.02), far = rows.filter(r => r.p_win < 0.02);
+  const row = r => `<div class="srow"><span>${r.strike.toFixed(2)}</span><span class="tag ${r.side === "YES" ? "yes" : "no"}">${r.side === "YES" ? "Yes" : "No"}</span>`
+    + `<span>${cents(r.price)}</span><span>${pct(r.p_win)}</span>${edgeCell(r.edge, thr)}</div>`;
+  const opt = (v, label) => `<option value="${v}"${allModel === v ? " selected" : ""}>${label}</option>`;
+  box.innerHTML = `<details id="alld"${allOpen ? " open" : ""}><summary><span style="display:flex;gap:6px;align-items:center">${ICON.list}All strikes · ${rows.length}</span>${ICON.chev}</summary>
+    <div class="row" style="margin-top:10px;align-items:center"><label for="allmodel" class="label">Model</label>
+      <select id="allmodel">${opt("rescaled", "Rescaled")}${opt("plain", "Plain count (paper only)")}</select></div>
+    <div class="legend"><span><i style="background:var(--ok)"></i>${cents(thr)}+</span><span><i style="background:var(--text-2)"></i>Under ${cents(thr)}</span><span><i style="background:var(--bad)"></i>Loss</span></div>
+    <div class="srow hd"><span>Above</span><span>Side</span><span>Price</span><span>Chance</span><span>Edge</span></div>
+    ${main.map(row).join("")}${allFar ? far.map(row).join("") : ""}
+    ${far.length ? `<button id="allfar" class="small" style="width:100%;justify-content:center;margin-top:8px">${allFar ? "Hide far strikes" : `Show ${far.length} far strike${far.length === 1 ? "" : "s"} (under 2% chance)`}</button>` : ""}
+    <div class="muted" style="margin-top:6px">${allModel === "plain" ? "Plain count: paper only, not what your alerts use." : "Rescaled: same numbers as your bet cards and alerts."} Edge is after Kalshi's fee.</div></details>`;
+  const d = $("alld"); d.ontoggle = () => { allOpen = d.open; };
+  $("allmodel").onchange = e => { allModel = e.target.value; renderAll(); };
+  if ($("allfar")) $("allfar").onclick = () => { allFar = !allFar; renderAll(); };
+}
 function render() {
   if (!data) return;
   const open = windowOpen();
@@ -205,7 +244,8 @@ function render() {
   const repo = data.repo || "dusterjr/copper-scanner";
   $("foot").innerHTML = `Rule: edge of ${cents(data.threshold)} or more after fees · rescaled method<br>
     Daily move ${Number(data.daily_move).toFixed(2)}% · ${data.horizon} trading day${data.horizon === 1 ? "" : "s"} left · ${data.n_windows.toLocaleString()} past weeks<br>
-    <a href="https://github.com/${esc(repo)}#readme">How it works</a> · <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">Run a scan on GitHub</a>`;
+    <a href="https://github.com/${esc(repo)}#readme">How it works</a> · <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">Run a scan on GitHub</a> · page ${PAGE_VERSION}`;
+  renderAll();
 }
 function applyTyped() {
   const v = parseFloat(($("px").value || "").replace(",", "."));
