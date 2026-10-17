@@ -10,14 +10,12 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Copper">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1f1f1d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1f1f1d">
 <style>
-:root{--bg:#ffffff;--surface:#f5f4ef;--text:#1f1e1d;--text-2:#5f5e5a;--text-3:#8a8983;--border:rgba(31,30,29,.15);--border-strong:rgba(31,30,29,.3);
---ok-bg:#eaf3de;--ok:#27500a;--acc-bg:#e6f1fb;--acc:#0c447c;--bad-bg:#fcebeb;--bad:#791f1f;--warn-bg:#faeeda;--warn:#633806;--radius:8px}
-@media (prefers-color-scheme:dark){:root{--bg:#1f1f1d;--surface:#2b2b29;--text:#f1efe8;--text-2:#b4b2a9;--text-3:#888780;--border:rgba(241,239,232,.14);--border-strong:rgba(241,239,232,.3);
---ok-bg:#173404;--ok:#c0dd97;--acc-bg:#042c53;--acc:#b5d4f4;--bad-bg:#501313;--bad:#f7c1c1;--warn-bg:#412402;--warn:#fac775}}
+:root{color-scheme:dark;--bg:#1f1f1d;--surface:#2b2b29;--text:#f1efe8;--text-2:#b4b2a9;--text-3:#888780;--border:rgba(241,239,232,.14);--border-strong:rgba(241,239,232,.3);
+--ok-bg:#173404;--ok:#c0dd97;--acc-bg:#042c53;--acc:#b5d4f4;--bad-bg:#501313;--bad:#f7c1c1;--warn-bg:#412402;--warn:#fac775;--radius:8px}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
 .app{max-width:440px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
