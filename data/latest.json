@@ -3,8 +3,8 @@
  "status": "ok",
  "error": null,
  "series": "KXCOPPERW",
- "run_utc": "2026-10-17T09:23:10+00:00",
- "last_ok_utc": "2026-10-17T09:23:10+00:00",
+ "run_utc": "2026-10-17T09:25:35+00:00",
+ "last_ok_utc": "2026-10-17T09:25:35+00:00",
  "week": "KXCOPPERW-26OCT2317",
  "open_utc": "2026-10-16T21:00:00+00:00",
  "close_utc": "2026-10-23T21:00:00+00:00",
@@ -16,9 +16,9 @@
  "bar": 0.04,
  "weekday_alerts": false,
  "weekday_alerts_forced": false,
- "spot": 6.562,
- "spot_source": "comex",
- "comex": 6.562,
+ "spot": 6.58,
+ "spot_source": "telegram",
+ "comex": 6.5735,
  "comex_label": "COMEX, last price",
  "comex_time_utc": "2026-10-16T21:00:00+00:00",
  "settlement": 6.65,
@@ -37,18 +37,18 @@
    "yes_ask": 0.87,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.8835546475995915,
-   "p_plain": 0.8447395301327886
+   "p_rescaled": 0.898876404494382,
+   "p_plain": 0.8615934627170583
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.42",
    "strike": 6.42,
-   "yes_bid": 0.8,
-   "yes_ask": 0.84,
-   "yes_bid_size": 500.0,
-   "yes_ask_size": 600.0,
-   "p_rescaled": 0.8432073544433095,
-   "p_plain": 0.8100102145045965
+   "yes_bid": 0.79,
+   "yes_ask": 0.83,
+   "yes_bid_size": 700.0,
+   "yes_ask_size": 500.0,
+   "p_rescaled": 0.8677221654749745,
+   "p_plain": 0.8243105209397344
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.45",
@@ -57,8 +57,8 @@
    "yes_ask": 0.79,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.7870275791624106,
-   "p_plain": 0.7732379979570991
+   "p_rescaled": 0.8181818181818181,
+   "p_plain": 0.797752808988764
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.48",
@@ -67,8 +67,8 @@
    "yes_ask": 0.73,
    "yes_bid_size": 700.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.7145045965270684,
-   "p_plain": 0.7231869254341164
+   "p_rescaled": 0.7563840653728294,
+   "p_plain": 0.7517875383043923
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.51",
@@ -77,8 +77,8 @@
    "yes_ask": 0.67,
    "yes_bid_size": 500.0,
    "yes_ask_size": 50.0,
-   "p_rescaled": 0.6424923391215527,
-   "p_plain": 0.6557711950970377
+   "p_rescaled": 0.6879468845760981,
+   "p_plain": 0.6930541368743616
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.54",
@@ -87,8 +87,8 @@
    "yes_ask": 0.6,
    "yes_bid_size": 500.0,
    "yes_ask_size": 50.0,
-   "p_rescaled": 0.5572012257405516,
-   "p_plain": 0.5929519918283963
+   "p_rescaled": 0.6133810010214504,
+   "p_plain": 0.6338100102145046
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.57",
@@ -97,18 +97,18 @@
    "yes_ask": 0.54,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.4698672114402451,
-   "p_plain": 0.5296220633299284
+   "p_rescaled": 0.524514811031665,
+   "p_plain": 0.5674157303370786
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.60",
    "strike": 6.6,
    "yes_bid": 0.45,
-   "yes_ask": 0.46,
+   "yes_ask": 0.47,
    "yes_bid_size": 4.0,
-   "yes_ask_size": 4.0,
-   "p_rescaled": 0.39121552604698673,
-   "p_plain": 0.46475995914198165
+   "yes_ask_size": 500.0,
+   "p_rescaled": 0.4382022471910112,
+   "p_plain": 0.49540347293156284
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.63",
@@ -117,8 +117,8 @@
    "yes_ask": 0.4,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.31052093973442285,
-   "p_plain": 0.40602655771195095
+   "p_rescaled": 0.3564862104187947,
+   "p_plain": 0.44177732379979573
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.66",
@@ -127,8 +127,8 @@
    "yes_ask": 0.33,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.2390194075587334,
-   "p_plain": 0.3421859039836568
+   "p_rescaled": 0.2757916241062308,
+   "p_plain": 0.3820224719101124
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.69",
@@ -137,8 +137,8 @@
    "yes_ask": 0.28,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
-   "p_rescaled": 0.1879468845760981,
-   "p_plain": 0.28855975485188967
+   "p_rescaled": 0.22114402451481108,
+   "p_plain": 0.3197139938712973
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.72",
@@ -147,8 +147,8 @@
    "yes_ask": 0.23,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.143003064351379,
-   "p_plain": 0.2390194075587334
+   "p_rescaled": 0.16905005107252302,
+   "p_plain": 0.26762002042900923
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.75",
@@ -157,8 +157,8 @@
    "yes_ask": 0.19,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.10878447395301327,
-   "p_plain": 0.1940755873340143
+   "p_rescaled": 0.1292134831460674,
+   "p_plain": 0.21859039836567928
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.78",
@@ -167,8 +167,8 @@
    "yes_ask": 0.15,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.0842696629213483,
-   "p_plain": 0.16138917262512764
+   "p_rescaled": 0.10316649642492337,
+   "p_plain": 0.17926455566905009
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.81",
@@ -177,8 +177,8 @@
    "yes_ask": 0.13,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.06792645556690502,
-   "p_plain": 0.13074565883554645
+   "p_rescaled": 0.07814096016343208,
+   "p_plain": 0.1486210418794689
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.84",
@@ -187,8 +187,8 @@
    "yes_ask": 0.11,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.05158324821246174,
-   "p_plain": 0.10163432073544432
+   "p_rescaled": 0.06486210418794691,
+   "p_plain": 0.11848825331971402
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.87",
@@ -197,8 +197,8 @@
    "yes_ask": 0.09,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.042390194075587306,
-   "p_plain": 0.08120531154239019
+   "p_rescaled": 0.04800817160367721,
+   "p_plain": 0.09141981613891725
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.90",
@@ -207,8 +207,8 @@
    "yes_ask": 0.08,
    "yes_bid_size": 500.0,
    "yes_ask_size": 600.0,
-   "p_rescaled": 0.03064351378958119,
-   "p_plain": 0.06537282941777323
+   "p_rescaled": 0.038815117466802884,
+   "p_plain": 0.07660878447395303
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.93",
@@ -217,8 +217,8 @@
    "yes_ask": 0.06,
    "yes_bid_size": 500.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.022471910112359605,
-   "p_plain": 0.04902962206332995
+   "p_rescaled": 0.028089887640449396,
+   "p_plain": 0.06026557711950975
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.96",
@@ -227,8 +227,8 @@
    "yes_ask": 0.05,
    "yes_bid_size": 500.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.018386108273748758,
-   "p_plain": 0.03728294177732383
+   "p_rescaled": 0.02093973442288044,
+   "p_plain": 0.0449438202247191
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.99",
@@ -237,8 +237,8 @@
    "yes_ask": 0.05,
    "yes_bid_size": 500.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.013789581205311596,
-   "p_plain": 0.02757916241062308
+   "p_rescaled": 0.015832482124616964,
+   "p_plain": 0.0337078651685393
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.02",
@@ -247,8 +247,8 @@
    "yes_ask": 0.04,
    "yes_bid_size": 500.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.012257405515832431,
-   "p_plain": 0.024514811031664974
+   "p_rescaled": 0.013278855975485171,
+   "p_plain": 0.026557711950970342
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.05",
@@ -257,8 +257,8 @@
    "yes_ask": 0.04,
    "yes_bid_size": 500.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.009703779366700749,
-   "p_plain": 0.019918283963227812
+   "p_rescaled": 0.011235955056179803,
+   "p_plain": 0.02196118488253318
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.08",
@@ -267,8 +267,8 @@
    "yes_ask": 0.04,
    "yes_bid_size": 691.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.00766087844739527,
-   "p_plain": 0.016853932584269704
+   "p_rescaled": 0.009193054136874323,
+   "p_plain": 0.018386108273748758
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.11",
@@ -277,8 +277,8 @@
    "yes_ask": 0.03,
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.006128702757916216,
-   "p_plain": 0.01430030643513791
+   "p_rescaled": 0.006639427987742641,
+   "p_plain": 0.01532175689479065
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.14",
@@ -287,8 +287,8 @@
    "yes_ask": 0.03,
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.004596527068437162,
-   "p_plain": 0.013789581205311596
+   "p_rescaled": 0.006128702757916216,
+   "p_plain": 0.01430030643513791
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.17",
@@ -297,8 +297,8 @@
    "yes_ask": 0.03,
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.003575076608784422,
-   "p_plain": 0.009193054136874323
+   "p_rescaled": 0.004596527068437162,
+   "p_plain": 0.010725229826353377
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.20",
@@ -307,8 +307,8 @@
    "yes_ask": 0.03,
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.003064351378958108,
-   "p_plain": 0.006639427987742641
+   "p_rescaled": 0.003575076608784422,
+   "p_plain": 0.009193054136874323
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.23",
@@ -317,7 +317,7 @@
    "yes_ask": 0.03,
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
-   "p_rescaled": 0.001532175689479054,
+   "p_rescaled": 0.002042900919305368,
    "p_plain": 0.006128702757916216
   },
   {
@@ -328,7 +328,7 @@
    "yes_bid_size": 0.0,
    "yes_ask_size": 85.0,
    "p_rescaled": 0.001532175689479054,
-   "p_plain": 0.004596527068437162
+   "p_plain": 0.005617977528089901
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.29",
@@ -337,8 +337,8 @@
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
    "yes_ask_size": 11.5,
-   "p_rescaled": 0.0010214504596527396,
-   "p_plain": 0.003064351378958108
+   "p_rescaled": 0.001532175689479054,
+   "p_plain": 0.003575076608784422
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.32",
@@ -358,7 +358,7 @@
    "yes_bid_size": 0.0,
    "yes_ask_size": 15.5,
    "p_rescaled": 0.0005107252298263143,
-   "p_plain": 0.0010214504596527396
+   "p_plain": 0.0025536261491317935
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.38",
@@ -368,7 +368,7 @@
    "yes_bid_size": 0.0,
    "yes_ask_size": 12.5,
    "p_rescaled": 0.0005107252298263143,
-   "p_plain": 0.0
+   "p_plain": 0.0005107252298263143
   },
   {
    "ticker": "KXCOPPERW-26OCT2317-T7.41",
@@ -407,7 +407,7 @@
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
    "yes_ask_size": 15.5,
-   "p_rescaled": 0.0,
+   "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0
   },
   {
@@ -431,52 +431,7 @@
    "p_plain": 0.0
   }
  ],
- "bets": [
-  {
-   "key": "6.60|NO",
-   "ticker": "KXCOPPERW-26OCT2317-T6.60",
-   "strike": 6.6,
-   "side": "NO",
-   "price": 0.55,
-   "p_win": 0.608784,
-   "edge": 0.041459,
-   "max_price": 0.55,
-   "offered": 4.0
-  },
-  {
-   "key": "6.63|NO",
-   "ticker": "KXCOPPERW-26OCT2317-T6.63",
-   "strike": 6.63,
-   "side": "NO",
-   "price": 0.63,
-   "p_win": 0.689479,
-   "edge": 0.043162,
-   "max_price": 0.63,
-   "offered": 200.0
-  },
-  {
-   "key": "6.66|NO",
-   "ticker": "KXCOPPERW-26OCT2317-T6.66",
-   "strike": 6.66,
-   "side": "NO",
-   "price": 0.7,
-   "p_win": 0.760981,
-   "edge": 0.046281,
-   "max_price": 0.7,
-   "offered": 200.0
-  },
-  {
-   "key": "6.69|NO",
-   "ticker": "KXCOPPERW-26OCT2317-T6.69",
-   "strike": 6.69,
-   "side": "NO",
-   "price": 0.75,
-   "p_win": 0.812053,
-   "edge": 0.048928,
-   "max_price": 0.75,
-   "offered": 200.0
-  }
- ],
+ "bets": [],
  "plain": [],
  "samples": {
   "rescaled": [
@@ -4402,5 +4357,10 @@
  },
  "repo": "dusterjr/copper-scanner",
  "acked": {},
- "price_override": null
+ "price_override": {
+  "week": "KXCOPPERW-26OCT2317",
+  "price": 6.58,
+  "until": "2026-10-18T22:00:00+00:00",
+  "set_utc": "2026-10-17T09:25:35+00:00"
+ }
 }
