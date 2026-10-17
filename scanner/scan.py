@@ -57,8 +57,20 @@ WEEKDAY_ALERTS_VAR = env("WEEKDAY_ALERTS").lower()           # GitHub variable: 
 DISPLAY_TZ = ZoneInfo(env("DISPLAY_TZ", "America/Chicago"))  # times in Telegram messages
 _REPO = env("GITHUB_REPOSITORY", "dusterjr/copper-scanner")
 PAGE_URL = env("PAGE_URL", f"https://{_REPO.split('/')[0]}.github.io/{_REPO.split('/')[-1]}/")
-TG_TOKEN = env("TELEGRAM_BOT_TOKEN")
-TG_CHAT = env("TELEGRAM_CHAT_ID")
+def clean_token(raw):
+    """Pull the token out even if extra text or spaces were pasted with it."""
+    m = re.search(r"\d{5,}:[A-Za-z0-9_-]{30,}", raw or "")
+    return m.group(0) if m else (raw or "").strip()
+
+
+def clean_chat(raw):
+    m = re.search(r"-?\d{5,}", raw or "")
+    return m.group(0) if m else (raw or "").strip()
+
+
+TG_TOKEN = clean_token(env("TELEGRAM_BOT_TOKEN"))
+TG_CHAT = clean_chat(env("TELEGRAM_CHAT_ID"))
+TG_STATUS = {"error": None}  # Telegram's last complaint, if any (never the token itself)
 
 session = requests.Session()
 session.headers.update({"Accept": "application/json"})
@@ -412,10 +424,15 @@ def telegram_ready():
 
 
 def tg_call(method, **params):
-    r = tg_session.post(f"{TG_BASE}/bot{TG_TOKEN}/{method}", json=params, timeout=30)
-    data = r.json()
+    try:
+        r = tg_session.post(f"{TG_BASE}/bot{TG_TOKEN}/{method}", json=params, timeout=30)
+        data = r.json()
+    except Exception as e:
+        TG_STATUS["error"] = f"{method}: couldn't reach Telegram ({type(e).__name__})"
+        raise RuntimeError(TG_STATUS["error"])
     if not data.get("ok"):
-        raise RuntimeError(f"Telegram {method}: {data.get('description')}")
+        TG_STATUS["error"] = f"{method}: {data.get('description')}"
+        raise RuntimeError(f"Telegram {TG_STATUS['error']}")
     return data["result"]
 
 
@@ -756,6 +773,8 @@ def main():
         for _ in status_requests:
             tg_send(status_text(out))
 
+    state["telegram"] = {"token_set": bool(TG_TOKEN), "token_looks_valid": bool(re.fullmatch(r"\d{5,}:[A-Za-z0-9_-]{30,}", TG_TOKEN)),
+                         "chat_id_set": bool(TG_CHAT), "last_error": TG_STATUS["error"], "checked_utc": iso(now)}
     keep = sorted(state.get("weeks", {}), key=lambda w: week_date(w) or dt.date.min)[-6:]  # recent weeks only
     state["weeks"] = {k: state["weeks"][k] for k in keep}
     save_json(STATE, state)
