@@ -3,8 +3,8 @@
  "status": "ok",
  "error": null,
  "series": "KXCOPPERW",
- "run_utc": "2026-10-17T18:43:49+00:00",
- "last_ok_utc": "2026-10-17T18:43:49+00:00",
+ "run_utc": "2026-10-17T19:18:30+00:00",
+ "last_ok_utc": "2026-10-17T19:18:30+00:00",
  "week": "KXCOPPERW-26OCT2317",
  "open_utc": "2026-10-16T21:00:00+00:00",
  "close_utc": "2026-10-23T21:00:00+00:00",
@@ -105,7 +105,7 @@
    "strike": 6.6,
    "yes_bid": 0.43,
    "yes_ask": 0.45,
-   "yes_bid_size": 2.0,
+   "yes_bid_size": 4.0,
    "yes_ask_size": 500.0,
    "p_rescaled": 0.4382022471910112,
    "p_plain": 0.49540347293156284
@@ -366,7 +366,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 12.5,
+   "yes_ask_size": 11.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0005107252298263143
   },
