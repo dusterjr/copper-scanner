@@ -2,3 +2,7 @@ run_utc,mode,method,role,strike,side,price,p_win,edge,max_price,offered,spot,spo
 2026-10-17T08:54:31+00:00,weekend,rescaled,bet,6.63,NO,0.63,0.689479,0.043162,0.63,200.0,6.562,comex
 2026-10-17T08:54:31+00:00,weekend,rescaled,bet,6.66,NO,0.69,0.760981,0.056008,0.7,200.0,6.562,comex
 2026-10-17T08:54:31+00:00,weekend,rescaled,bet,6.69,NO,0.75,0.812053,0.048928,0.75,200.0,6.562,comex
+2026-10-17T09:23:10+00:00,weekend,rescaled,bet,6.6,NO,0.55,0.608784,0.041459,0.55,4.0,6.562,comex
+2026-10-17T09:23:10+00:00,weekend,rescaled,bet,6.63,NO,0.63,0.689479,0.043162,0.63,200.0,6.562,comex
+2026-10-17T09:23:10+00:00,weekend,rescaled,bet,6.66,NO,0.7,0.760981,0.046281,0.7,200.0,6.562,comex
+2026-10-17T09:23:10+00:00,weekend,rescaled,bet,6.69,NO,0.75,0.812053,0.048928,0.75,200.0,6.562,comex
