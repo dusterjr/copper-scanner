@@ -16,7 +16,9 @@ The betting window runs from Friday 4 PM to Sunday 5 PM Chicago time (Friday 5 P
 4. Don't pay more than **Pay at most** for any bet. Above that, the bet no longer clears 4¢.
 5. Tap **Placed all** in Telegram (or send `placed 6.54 6.60` for some of them) so the live test records what you actually bet.
 
-**Paper only** sections (plain count picks, weekday picks) are tracked for the live test. Don't bet them.
+**Weekday picks** are paper only, tracked for the live test. Don't bet them.
+
+**All strikes**, below the bets, shows every strike's edge after the fee. Its **Model** menu switches between the plain count, which your bets and alerts use, and the rescaled method, for comparison only.
 
 **When to stop:** after 6 betting weekends, compare the live results with the backtest. Stop sooner if you're ever down about $15.
 
@@ -72,11 +74,12 @@ In this repo: Settings → Secrets and variables → Actions → **Variables** t
 ## How it decides
 
 - **Starting price:** COMEX copper's latest price (Yahoo `HG=F`), or your `/price` during the weekend.
-- **Chance of finishing above each strike:** every past week of copper moves since 2018, each scaled to how jumpy copper was at the time, then rescaled to today's 20-day average daily move, with the 2019–2026 uptrend removed.
+- **Chance of finishing above each strike (plain count):** every past stretch of copper since Dec 31, 2018 with as many trading days as this week has left, one starting on each trading day, counted as it happened: the share that moved far enough to beat the strike. It doesn't adjust for how jumpy copper is right now, and it keeps copper's 2019–2026 uptrend, so it leans toward copper rising.
+- **Rescaled method (comparison only):** the same past moves, each scaled to how jumpy copper was at the time, then resized to today's 20-day average daily move, with the uptrend removed. It's in the All strikes menu and the weekly log, never in alerts.
 - **Edge** = your chance − price − Kalshi's fee (0.07 × price × (1 − price)). A bet qualifies at an edge of 4¢ or more.
 - **Pay at most** is the highest price that still clears 4¢ after the fee.
 
-Backtest (Apr–Oct 2026, 1 contract per bet): weekend bets averaged about +24¢ per bet across 17 weekends, with 3 small losing weekends. Weekday bets showed no reliable edge, so weekday picks are paper only. 2026 was a rising copper market, so the live test decides whether this holds.
+Backtest, rerun Oct 18, 2026 (23 weekends from Apr to Oct 2026, bets placed Friday night at Kalshi's real prices, COMEX starting price, 1 contract per bet, after Kalshi's fee): the plain count made +14¢ per bet ($1.00 per weekend, 2 losing weekends) and the rescaled method +12¢ ($0.78, 5 losing weekends). That gap is within noise. Plain's lead came from weeks when copper rose; in the 8 weeks it fell, rescaled did better. Weekday bets showed no reliable edge, so weekday picks are paper only. The live test decides whether this holds.
 
 ## Records
 
@@ -84,7 +87,7 @@ Backtest (Apr–Oct 2026, 1 contract per bet): weekend bets averaged about +24¢
 |---|---|
 | `data/latest.json` | The latest scan, which the page shows |
 | `data/log/runs.csv` | One line per scan |
-| `data/log/<week>.csv` | Every flagged pick, with prices, for each week |
+| `data/log/<week>.csv` | Every flagged pick, with prices, for each week. `method` is the model that flagged it and `role` says whether it was a bet or paper (since Oct 18, 2026, plain picks are the bets) |
 | `data/log/acks.csv` | What you marked Seen or Placed in Telegram |
 | `data/state.json` | Alert memory: what's been sent, acknowledged and switched on |
 | `data/copper_history.csv` | The scanner's own copy of daily copper prices since 2018 |

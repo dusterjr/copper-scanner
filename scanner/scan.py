@@ -3,7 +3,7 @@ Copper weekly scanner for Kalshi's KXCOPPERW contracts, run every hour by GitHub
 
 Each run:
   1. reads your Telegram replies and commands (Seen, Placed all, /price, /weekday, /status),
-  2. scans the open week's ladder: rescaled method for bets, plain count as paper only,
+  2. scans the open week's ladder: plain count for bets, rescaled method logged for comparison only,
      starting from COMEX copper's latest price,
   3. writes data/latest.json for the page and appends to the logs in data/log/,
   4. sends Telegram alerts: weekends only, unless weekday alerts are switched on.
@@ -53,6 +53,8 @@ def env(name, default=""):
 
 THRESHOLD = float(env("THRESHOLD", "0.04"))                  # your rule: edge of 4c or more
 WEEKDAY_THRESHOLD = float(env("WEEKDAY_THRESHOLD", "0.04"))  # bar for weekday picks
+BET_METHOD = "plain"                                         # the model your bets, alerts and Pay at most use
+COMPARE_METHOD = "rescaled"                                  # the other model: logged for comparison, never alerted
 WEEKDAY_ALERTS_VAR = env("WEEKDAY_ALERTS").lower()           # GitHub variable: "true" forces weekday alerts on
 DISPLAY_TZ = ZoneInfo(env("DISPLAY_TZ", "America/Chicago"))  # times in Telegram messages
 _REPO = env("GITHUB_REPOSITORY", "dusterjr/copper-scanner")
@@ -378,8 +380,8 @@ def scan(now, state):
     s["p_rescaled"] = p_above(units, (dist / dm_now).to_numpy())
     s["p_plain"] = p_above(moves, dist.to_numpy())
     bar = THRESHOLD if in_window else WEEKDAY_THRESHOLD
-    bets = evaluate(s, "p_rescaled", bar)
-    plain = evaluate(s, "p_plain", THRESHOLD)
+    bets = evaluate(s, f"p_{BET_METHOD}", bar)
+    compare = evaluate(s, f"p_{COMPARE_METHOD}", THRESHOLD)
 
     def clean(v, nd):
         return None if v is None or (isinstance(v, float) and math.isnan(v)) else round(float(v), nd)
@@ -401,7 +403,8 @@ def scan(now, state):
                      "yes_bid_size": clean(r.yes_bid_size, 2), "yes_ask_size": clean(r.yes_ask_size, 2),
                      "p_rescaled": float(r.p_rescaled), "p_plain": float(r.p_plain)}
                     for r in s.itertuples()],
-        "bets": pick_list(bets), "plain": pick_list(plain),
+        "bet_method": BET_METHOD, "compare_method": COMPARE_METHOD,
+        "bets": pick_list(bets), "compare": pick_list(compare),
         "samples": {"rescaled": [round(float(v), 4) for v in units], "plain": [round(float(v), 4) for v in moves]},
         "repo": env("GITHUB_REPOSITORY", "dusterjr/copper-scanner"),
     }
@@ -632,9 +635,15 @@ def alerts(r, state, now):
     if not telegram_ready() or not (r["in_window"] or weekday_alerts_on(state)):
         return 0
     weeks = state.setdefault("weeks", {})
-    wk = weeks.setdefault(r["week"], {"alerted": {}, "acked": {}, "summary_sent": False})
+    wk = weeks.setdefault(r["week"], {"alerted": {}, "acked": {}, "summary_sent": False, "method": BET_METHOD})
     take = {b["key"]: b for b in r["bets"]}
     acked = wk.setdefault("acked", {})
+
+    if wk.get("method", "rescaled") != BET_METHOD:  # the betting model changed during this week
+        wk["method"] = BET_METHOD
+        if wk.get("summary_sent") or not r["in_window"]:
+            wk["alerted"] = take  # start over quietly: no "No longer worth it" for the old model's picks
+            return 0
 
     if r["in_window"] and not wk.get("summary_sent"):
         if take:
@@ -682,19 +691,21 @@ def append_csv(path, header_row, rows):
 
 def log_run(r, now, alerts_sent, status, error=None):
     ok = status == "ok"
+    # runs.csv keeps its n_plain column: how many picks the plain count flagged, whichever model bets
+    n_plain = len(r.get("bets", []) if r.get("bet_method") == "plain" else r.get("compare", r.get("plain", [])))
     append_csv(LOG / "runs.csv",
                ["run_utc", "week", "mode", "status", "spot", "spot_source", "comex", "settlement",
                 "daily_move", "horizon", "n_bets", "n_plain", "alerts_sent", "error"],
                [[iso(now), r.get("week"), r.get("mode") if ok else "", status,
                  r.get("spot") if ok else "", r.get("spot_source") if ok else "", r.get("comex") if ok else "",
                  r.get("settlement") if ok else "", r.get("daily_move") if ok else "", r.get("horizon") if ok else "",
-                 len(r.get("bets", [])) if ok else "", len(r.get("plain", [])) if ok else "", alerts_sent, error]])
+                 len(r.get("bets", [])) if ok else "", n_plain if ok else "", alerts_sent, error]])
     if ok:
         role = "bet" if r["in_window"] else "weekday_paper"
-        rows = [[iso(now), r["mode"], "rescaled", role, b["strike"], b["side"], b["price"], b["p_win"],
+        rows = [[iso(now), r["mode"], r["bet_method"], role, b["strike"], b["side"], b["price"], b["p_win"],
                  b["edge"], b["max_price"], b["offered"], r["spot"], r["spot_source"]] for b in r["bets"]]
-        rows += [[iso(now), r["mode"], "plain", "paper", b["strike"], b["side"], b["price"], b["p_win"],
-                  b["edge"], b["max_price"], b["offered"], r["spot"], r["spot_source"]] for b in r["plain"]]
+        rows += [[iso(now), r["mode"], r["compare_method"], "paper", b["strike"], b["side"], b["price"], b["p_win"],
+                  b["edge"], b["max_price"], b["offered"], r["spot"], r["spot_source"]] for b in r["compare"]]
         if rows:
             append_csv(LOG / f"{r['week']}.csv",
                        ["run_utc", "mode", "method", "role", "strike", "side", "price", "p_win", "edge",

@@ -89,9 +89,12 @@ const ICON = {
   chev: '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
   list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>'
 };
-const PAGE_VERSION = "v2";
+const PAGE_VERSION = "v3";
 let data = null, live = null, typed = null, refreshNote = "";
-let allOpen = false, allModel = "rescaled", allFar = false;   // all-strikes list: open or not, which model, far strikes shown
+let allOpen = false, allModel = null, allFar = false;   // all-strikes list: open or not, which model (null = the betting one), far strikes shown
+const MODEL_NAME = {plain: "Plain count", rescaled: "Rescaled"};
+const MODEL_LOWER = {plain: "plain count", rescaled: "rescaled method"};
+const betMethod = () => data.bet_method || "rescaled";   // scans from before the switch don't say; they bet with rescaled
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -167,21 +170,22 @@ function edgeCell(e, thr) {            // same rounding as the bet cards; green 
 function renderAll() {                 // every strike with a price, scored exactly like the bet cards
   const box = $("all");
   if (!data || !windowOpen()) { box.innerHTML = ""; return; }
-  const thr = data.threshold;
-  const rows = evaluate(strikesNow(), allModel, -1).sort((a, b) => b.edge - a.edge);  // -1 is below any possible edge, so nothing is filtered out
+  const thr = data.threshold, bm = betMethod(), model = allModel || bm;
+  const rows = evaluate(strikesNow(), model, -1).sort((a, b) => b.edge - a.edge);  // -1 is below any possible edge, so nothing is filtered out
   if (!rows.length) { box.innerHTML = ""; return; }
   const main = rows.filter(r => r.p_win >= 0.02), far = rows.filter(r => r.p_win < 0.02);
   const row = r => `<div class="srow"><span>${r.strike.toFixed(2)}</span><span class="tag ${r.side === "YES" ? "yes" : "no"}">${r.side === "YES" ? "Yes" : "No"}</span>`
     + `<span>${cents(r.price)}</span><span>${pct(r.p_win)}</span>${edgeCell(r.edge, thr)}</div>`;
-  const opt = (v, label) => `<option value="${v}"${allModel === v ? " selected" : ""}>${label}</option>`;
+  const other = bm === "plain" ? "rescaled" : "plain";
+  const opt = v => `<option value="${v}"${model === v ? " selected" : ""}>${MODEL_NAME[v]}${v === bm ? "" : " (comparison)"}</option>`;
   box.innerHTML = `<details id="alld"${allOpen ? " open" : ""}><summary><span style="display:flex;gap:6px;align-items:center">${ICON.list}All strikes · ${rows.length}</span>${ICON.chev}</summary>
     <div class="row" style="margin-top:10px;align-items:center"><label for="allmodel" class="label">Model</label>
-      <select id="allmodel">${opt("rescaled", "Rescaled")}${opt("plain", "Plain count (paper only)")}</select></div>
+      <select id="allmodel">${opt(bm)}${opt(other)}</select></div>
     <div class="legend"><span><i style="background:var(--ok)"></i>${cents(thr)}+</span><span><i style="background:var(--text-2)"></i>Under ${cents(thr)}</span><span><i style="background:var(--bad)"></i>Loss</span></div>
     <div class="srow hd"><span>Above</span><span>Side</span><span>Price</span><span>Chance</span><span>Edge</span></div>
     ${main.map(row).join("")}${allFar ? far.map(row).join("") : ""}
     ${far.length ? `<button id="allfar" class="small" style="width:100%;justify-content:center;margin-top:8px">${allFar ? "Hide far strikes" : `Show ${far.length} far strike${far.length === 1 ? "" : "s"} (under 2% chance)`}</button>` : ""}
-    <div class="muted" style="margin-top:6px">${allModel === "plain" ? "Plain count: paper only, not what your alerts use." : "Rescaled: same numbers as your bet cards and alerts."} Edge is after Kalshi's fee.</div></details>`;
+    <div class="muted" style="margin-top:6px">${model === bm ? `${MODEL_NAME[bm]}: same numbers as your bet cards and alerts.` : `${MODEL_NAME[model]}: for comparison only. Your bets and alerts use the ${MODEL_LOWER[bm]}.`} Edge is after Kalshi's fee.</div></details>`;
   const d = $("alld"); d.ontoggle = () => { allOpen = d.open; };
   $("allmodel").onchange = e => { allModel = e.target.value; renderAll(); };
   if ($("allfar")) $("allfar").onclick = () => { allFar = !allFar; renderAll(); };
@@ -215,15 +219,11 @@ function render() {
       <div class="row" style="margin-top:0"><input id="px" inputmode="decimal" placeholder="${data.spot.toFixed(2)}" aria-label="Kalshi copper price" value="${typed != null ? typed.toFixed(2) : ""}">
       <button id="recalc">${typed != null ? "Update" : "Recalculate"}</button>${typed != null ? '<button id="reset">Reset</button>' : ""}</div>
       <div class="err" id="pxerr" hidden></div></div>`;
-    const bets = evaluate(strikes, "rescaled", data.threshold);
+    const bets = evaluate(strikes, betMethod(), data.threshold);
     $("bets").innerHTML = bets.length
       ? `<h2>${bets.length} bet${bets.length === 1 ? "" : "s"} to take <span>· 1 contract each</span></h2>` + bets.map(b => betCard(b, data.acked)).join("")
       : `<h2>No bets this weekend</h2><p class="empty">Nothing clears ${cents(data.threshold)} at these prices. Skipping is the rule working.</p>`;
-    const plain = evaluate(strikes, "plain", data.threshold);
-    $("extra").innerHTML = `<details><summary><span style="display:flex;gap:6px;align-items:center">${ICON.note}Plain count picks (paper only)</span>${ICON.chev}</summary>
-      ${plain.length ? plain.map(b => `<div class="paper"><span>Above ${b.strike.toFixed(2)} · ${b.side === "YES" ? "Yes" : "No"} ${cents(b.price)}</span><span>edge +${(b.edge * 100).toFixed(1)}¢</span></div>`).join("")
-        : '<div class="paper"><span>No plain count picks</span></div>'}
-      <div class="muted" style="margin-top:6px">Tracked for the live test. Don't bet these.</div></details>`;
+    $("extra").innerHTML = "";   // the other model lives in the All strikes menu, not a second list of picks
     $("recalc").onclick = applyTyped;
     $("px").onkeydown = e => { if (e.key === "Enter") applyTyped(); };
     $("px").oninput = () => { $("pxerr").hidden = true; };
@@ -242,7 +242,7 @@ function render() {
       <div class="muted" style="margin-top:8px">Logged for the live test only · ${alertsOn ? "weekday alerts are on" : "not alerts"}</div>`;
   }
   const repo = data.repo || "dusterjr/copper-scanner";
-  $("foot").innerHTML = `Rule: edge of ${cents(data.threshold)} or more after fees · rescaled method<br>
+  $("foot").innerHTML = `Rule: edge of ${cents(data.threshold)} or more after fees · ${MODEL_LOWER[betMethod()]}<br>
     Daily move ${Number(data.daily_move).toFixed(2)}% · ${data.horizon} trading day${data.horizon === 1 ? "" : "s"} left · ${data.n_windows.toLocaleString()} past weeks<br>
     <a href="https://github.com/${esc(repo)}#readme">How it works</a> · <a href="https://github.com/${esc(repo)}/actions/workflows/scan.yml">Run a scan on GitHub</a> · page ${PAGE_VERSION}`;
   renderAll();
