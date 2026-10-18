@@ -12,60 +12,16 @@
  "weeks": {
   "KXCOPPERW-26OCT2317": {
    "alerted": {
-    "6.39|YES": {
-     "key": "6.39|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.39",
-     "strike": 6.39,
-     "side": "YES",
-     "price": 0.83,
-     "p_win": 0.884576,
-     "edge": 0.044699,
-     "max_price": 0.83,
-     "offered": 500.0
-    },
     "6.42|YES": {
      "key": "6.42|YES",
      "ticker": "KXCOPPERW-26OCT2317-T6.42",
      "strike": 6.42,
      "side": "YES",
-     "price": 0.78,
+     "price": 0.79,
      "p_win": 0.847293,
-     "edge": 0.055281,
+     "edge": 0.04568,
      "max_price": 0.79,
      "offered": 500.0
-    },
-    "6.45|YES": {
-     "key": "6.45|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.45",
-     "strike": 6.45,
-     "side": "YES",
-     "price": 0.73,
-     "p_win": 0.793156,
-     "edge": 0.049359,
-     "max_price": 0.73,
-     "offered": 500.0
-    },
-    "6.48|YES": {
-     "key": "6.48|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.48",
-     "strike": 6.48,
-     "side": "YES",
-     "price": 0.67,
-     "p_win": 0.726251,
-     "edge": 0.040774,
-     "max_price": 0.67,
-     "offered": 600.0
-    },
-    "6.51|YES": {
-     "key": "6.51|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.51",
-     "strike": 6.51,
-     "side": "YES",
-     "price": 0.59,
-     "p_win": 0.655771,
-     "edge": 0.048838,
-     "max_price": 0.59,
-     "offered": 50.0
     }
    },
    "acked": {},
@@ -77,7 +33,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-18T14:32:21+00:00"
+  "checked_utc": "2026-10-18T17:44:36+00:00"
  },
  "pairing_replied": [
   35259757
