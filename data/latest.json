@@ -3,8 +3,8 @@
  "status": "ok",
  "error": null,
  "series": "KXCOPPERW",
- "run_utc": "2026-10-18T20:35:45+00:00",
- "last_ok_utc": "2026-10-18T20:35:45+00:00",
+ "run_utc": "2026-10-18T20:47:46+00:00",
+ "last_ok_utc": "2026-10-18T20:47:46+00:00",
  "week": "KXCOPPERW-26OCT2317",
  "open_utc": "2026-10-16T21:00:00+00:00",
  "close_utc": "2026-10-23T21:00:00+00:00",
@@ -83,8 +83,8 @@
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.54",
    "strike": 6.54,
-   "yes_bid": 0.48,
-   "yes_ask": 0.51,
+   "yes_bid": 0.47,
+   "yes_ask": 0.5,
    "yes_bid_size": 200.0,
    "yes_ask_size": 500.0,
    "p_rescaled": 0.5776302349336058,
@@ -336,7 +336,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 13.5,
+   "yes_ask_size": 11.5,
    "p_rescaled": 0.001532175689479054,
    "p_plain": 0.003064351378958108
   },
@@ -431,75 +431,9 @@
    "p_plain": 0.0
   }
  ],
+ "bet_method": "plain",
+ "compare_method": "rescaled",
  "bets": [
-  {
-   "key": "6.39|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.39",
-   "strike": 6.39,
-   "side": "YES",
-   "price": 0.81,
-   "p_win": 0.884576,
-   "edge": 0.063803,
-   "max_price": 0.83,
-   "offered": 500.0
-  },
-  {
-   "key": "6.42|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.42",
-   "strike": 6.42,
-   "side": "YES",
-   "price": 0.76,
-   "p_win": 0.847293,
-   "edge": 0.074525,
-   "max_price": 0.79,
-   "offered": 500.0
-  },
-  {
-   "key": "6.45|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.45",
-   "strike": 6.45,
-   "side": "YES",
-   "price": 0.7,
-   "p_win": 0.793156,
-   "edge": 0.078456,
-   "max_price": 0.73,
-   "offered": 500.0
-  },
-  {
-   "key": "6.48|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.48",
-   "strike": 6.48,
-   "side": "YES",
-   "price": 0.64,
-   "p_win": 0.726251,
-   "edge": 0.070123,
-   "max_price": 0.67,
-   "offered": 500.0
-  },
-  {
-   "key": "6.51|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.51",
-   "strike": 6.51,
-   "side": "YES",
-   "price": 0.58,
-   "p_win": 0.655771,
-   "edge": 0.058719,
-   "max_price": 0.59,
-   "offered": 500.0
-  },
-  {
-   "key": "6.54|YES",
-   "ticker": "KXCOPPERW-26OCT2317-T6.54",
-   "strike": 6.54,
-   "side": "YES",
-   "price": 0.51,
-   "p_win": 0.57763,
-   "edge": 0.050137,
-   "max_price": 0.52,
-   "offered": 500.0
-  }
- ],
- "plain": [
   {
    "key": "6.42|YES",
    "ticker": "KXCOPPERW-26OCT2317-T6.42",
@@ -549,9 +483,9 @@
    "ticker": "KXCOPPERW-26OCT2317-T6.54",
    "strike": 6.54,
    "side": "YES",
-   "price": 0.51,
+   "price": 0.5,
    "p_win": 0.610317,
-   "edge": 0.082824,
+   "edge": 0.092817,
    "max_price": 0.55,
    "offered": 500.0
   },
@@ -642,6 +576,74 @@
    "edge": 0.04268,
    "max_price": 0.12,
    "offered": 600.0
+  }
+ ],
+ "compare": [
+  {
+   "key": "6.39|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.39",
+   "strike": 6.39,
+   "side": "YES",
+   "price": 0.81,
+   "p_win": 0.884576,
+   "edge": 0.063803,
+   "max_price": 0.83,
+   "offered": 500.0
+  },
+  {
+   "key": "6.42|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.42",
+   "strike": 6.42,
+   "side": "YES",
+   "price": 0.76,
+   "p_win": 0.847293,
+   "edge": 0.074525,
+   "max_price": 0.79,
+   "offered": 500.0
+  },
+  {
+   "key": "6.45|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.45",
+   "strike": 6.45,
+   "side": "YES",
+   "price": 0.7,
+   "p_win": 0.793156,
+   "edge": 0.078456,
+   "max_price": 0.73,
+   "offered": 500.0
+  },
+  {
+   "key": "6.48|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.48",
+   "strike": 6.48,
+   "side": "YES",
+   "price": 0.64,
+   "p_win": 0.726251,
+   "edge": 0.070123,
+   "max_price": 0.67,
+   "offered": 500.0
+  },
+  {
+   "key": "6.51|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.51",
+   "strike": 6.51,
+   "side": "YES",
+   "price": 0.58,
+   "p_win": 0.655771,
+   "edge": 0.058719,
+   "max_price": 0.59,
+   "offered": 500.0
+  },
+  {
+   "key": "6.54|YES",
+   "ticker": "KXCOPPERW-26OCT2317-T6.54",
+   "strike": 6.54,
+   "side": "YES",
+   "price": 0.5,
+   "p_win": 0.57763,
+   "edge": 0.06013,
+   "max_price": 0.52,
+   "offered": 500.0
   }
  ],
  "samples": {
