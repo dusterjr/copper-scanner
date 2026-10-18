@@ -3,8 +3,8 @@
  "status": "ok",
  "error": null,
  "series": "KXCOPPERW",
- "run_utc": "2026-10-17T22:14:14+00:00",
- "last_ok_utc": "2026-10-17T22:14:14+00:00",
+ "run_utc": "2026-10-18T00:57:22+00:00",
+ "last_ok_utc": "2026-10-18T00:57:22+00:00",
  "week": "KXCOPPERW-26OCT2317",
  "open_utc": "2026-10-16T21:00:00+00:00",
  "close_utc": "2026-10-23T21:00:00+00:00",
@@ -18,7 +18,7 @@
  "weekday_alerts_forced": false,
  "spot": 6.58,
  "spot_source": "telegram",
- "comex": 6.562,
+ "comex": 6.5735,
  "comex_label": "COMEX, last price",
  "comex_time_utc": "2026-10-16T21:00:00+00:00",
  "settlement": 6.65,
@@ -93,9 +93,9 @@
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.57",
    "strike": 6.57,
-   "yes_bid": 0.45,
+   "yes_bid": 0.44,
    "yes_ask": 0.48,
-   "yes_bid_size": 200.0,
+   "yes_bid_size": 600.0,
    "yes_ask_size": 500.0,
    "p_rescaled": 0.524514811031665,
    "p_plain": 0.5674157303370786
@@ -103,9 +103,9 @@
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.60",
    "strike": 6.6,
-   "yes_bid": 0.39,
+   "yes_bid": 0.38,
    "yes_ask": 0.41,
-   "yes_bid_size": 50.0,
+   "yes_bid_size": 1.0,
    "yes_ask_size": 500.0,
    "p_rescaled": 0.4382022471910112,
    "p_plain": 0.49540347293156284
@@ -113,9 +113,9 @@
   {
    "ticker": "KXCOPPERW-26OCT2317-T6.63",
    "strike": 6.63,
-   "yes_bid": 0.32,
-   "yes_ask": 0.35,
-   "yes_bid_size": 200.0,
+   "yes_bid": 0.3,
+   "yes_ask": 0.34,
+   "yes_bid_size": 600.0,
    "yes_ask_size": 500.0,
    "p_rescaled": 0.3564862104187947,
    "p_plain": 0.44177732379979573
@@ -336,7 +336,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 12.5,
+   "yes_ask_size": 15.5,
    "p_rescaled": 0.001532175689479054,
    "p_plain": 0.003575076608784422
   },
@@ -346,7 +346,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 12.5,
+   "yes_ask_size": 13.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0025536261491317935
   },
@@ -356,7 +356,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 13.5,
+   "yes_ask_size": 11.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0025536261491317935
   },
@@ -366,7 +366,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 15.5,
+   "yes_ask_size": 13.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0005107252298263143
   },
@@ -376,7 +376,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 11.5,
+   "yes_ask_size": 13.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0
   },
@@ -386,7 +386,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 11.5,
+   "yes_ask_size": 13.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0
   },
@@ -396,7 +396,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 11.5,
+   "yes_ask_size": 13.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0
   },
@@ -406,7 +406,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 11.5,
+   "yes_ask_size": 12.5,
    "p_rescaled": 0.0005107252298263143,
    "p_plain": 0.0
   },
@@ -416,7 +416,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 15.5,
+   "yes_ask_size": 12.5,
    "p_rescaled": 0.0,
    "p_plain": 0.0
   },
@@ -426,7 +426,7 @@
    "yes_bid": 0.0,
    "yes_ask": 0.09,
    "yes_bid_size": 0.0,
-   "yes_ask_size": 15.5,
+   "yes_ask_size": 12.5,
    "p_rescaled": 0.0,
    "p_plain": 0.0
   }
@@ -571,9 +571,9 @@
    "ticker": "KXCOPPERW-26OCT2317-T6.63",
    "strike": 6.63,
    "side": "YES",
-   "price": 0.35,
+   "price": 0.34,
    "p_win": 0.441777,
-   "edge": 0.075852,
+   "edge": 0.086069,
    "max_price": 0.38,
    "offered": 500.0
   },
