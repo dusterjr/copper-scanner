@@ -11,30 +11,7 @@
  },
  "weeks": {
   "KXCOPPERW-26OCT2317": {
-   "alerted": {
-    "6.48|YES": {
-     "key": "6.48|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.48",
-     "strike": 6.48,
-     "side": "YES",
-     "price": 0.69,
-     "p_win": 0.748723,
-     "edge": 0.04375,
-     "max_price": 0.69,
-     "offered": 50.0
-    },
-    "6.51|YES": {
-     "key": "6.51|YES",
-     "ticker": "KXCOPPERW-26OCT2317-T6.51",
-     "strike": 6.51,
-     "side": "YES",
-     "price": 0.62,
-     "p_win": 0.679265,
-     "edge": 0.042773,
-     "max_price": 0.62,
-     "offered": 50.0
-    }
-   },
+   "alerted": {},
    "acked": {},
    "summary_sent": true
   }
@@ -44,18 +21,18 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-18T05:49:17+00:00"
+  "checked_utc": "2026-10-18T07:58:16+00:00"
  },
  "pairing_replied": [
   35259757
  ],
  "setup_done": true,
- "telegram_offset": 35259762,
+ "telegram_offset": 35259763,
  "price_override": {
   "week": "KXCOPPERW-26OCT2317",
-  "price": 6.58,
+  "price": 6.57,
   "until": "2026-10-18T22:00:00+00:00",
-  "set_utc": "2026-10-17T09:25:35+00:00"
+  "set_utc": "2026-10-18T07:58:16+00:00"
  },
  "weekday_alerts": true
 }
