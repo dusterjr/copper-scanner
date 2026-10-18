@@ -102,3 +102,8 @@ run_utc,mode,method,role,strike,side,price,p_win,edge,max_price,offered,spot,spo
 2026-10-18T10:57:02+00:00,weekend,plain,paper,6.63,YES,0.35,0.42288,0.056955,0.36,500.0,6.57,telegram
 2026-10-18T10:57:02+00:00,weekend,plain,paper,6.66,YES,0.3,0.360572,0.045872,0.3,500.0,6.57,telegram
 2026-10-18T10:57:02+00:00,weekend,plain,paper,6.69,YES,0.24,0.301328,0.04856,0.24,500.0,6.57,telegram
+2026-10-18T12:03:17+00:00,weekend,plain,paper,6.57,YES,0.49,0.547497,0.040004,0.49,500.0,6.57,telegram
+2026-10-18T12:03:17+00:00,weekend,plain,paper,6.6,YES,0.42,0.47906,0.042008,0.42,541.8,6.57,telegram
+2026-10-18T12:03:17+00:00,weekend,plain,paper,6.63,YES,0.36,0.42288,0.046752,0.36,500.0,6.57,telegram
+2026-10-18T12:03:17+00:00,weekend,plain,paper,6.66,YES,0.3,0.360572,0.045872,0.3,500.0,6.57,telegram
+2026-10-18T12:03:17+00:00,weekend,plain,paper,6.72,YES,0.19,0.248212,0.047439,0.19,50.0,6.57,telegram
