@@ -17,10 +17,10 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.39",
      "strike": 6.39,
      "side": "NO",
-     "price": 0.07,
-     "p_win": 0.121939,
-     "edge": 0.047382,
-     "max_price": 0.07,
+     "price": 0.05,
+     "p_win": 0.099439,
+     "edge": 0.046114,
+     "max_price": 0.05,
      "offered": 500.0
     },
     "6.42|NO": {
@@ -28,10 +28,10 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.42",
      "strike": 6.42,
      "side": "NO",
-     "price": 0.08,
-     "p_win": 0.151531,
-     "edge": 0.066379,
-     "max_price": 0.1,
+     "price": 0.05,
+     "p_win": 0.131566,
+     "edge": 0.078241,
+     "max_price": 0.08,
      "offered": 500.0
     },
     "6.45|NO": {
@@ -39,10 +39,10 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.45",
      "strike": 6.45,
      "side": "NO",
-     "price": 0.11,
-     "p_win": 0.196429,
-     "edge": 0.079576,
-     "max_price": 0.14,
+     "price": 0.05,
+     "p_win": 0.171851,
+     "edge": 0.118526,
+     "max_price": 0.12,
      "offered": 500.0
     },
     "6.48|NO": {
@@ -50,55 +50,99 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.48",
      "strike": 6.48,
      "side": "NO",
-     "price": 0.15,
-     "p_win": 0.238776,
-     "edge": 0.079851,
+     "price": 0.07,
+     "p_win": 0.235084,
+     "edge": 0.160527,
      "max_price": 0.18,
-     "offered": 515.5
+     "offered": 500.0
     },
     "6.51|NO": {
      "key": "6.51|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.51",
      "strike": 6.51,
      "side": "NO",
-     "price": 0.2,
-     "p_win": 0.311735,
-     "edge": 0.100535,
-     "max_price": 0.25,
-     "offered": 11.5
+     "price": 0.11,
+     "p_win": 0.301377,
+     "edge": 0.184524,
+     "max_price": 0.24,
+     "offered": 500.0
     },
     "6.54|NO": {
      "key": "6.54|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.54",
      "strike": 6.54,
      "side": "NO",
-     "price": 0.27,
-     "p_win": 0.370918,
-     "edge": 0.087121,
-     "max_price": 0.31,
-     "offered": 15.5
+     "price": 0.16,
+     "p_win": 0.375829,
+     "edge": 0.206421,
+     "max_price": 0.32,
+     "offered": 531.0
     },
     "6.57|NO": {
      "key": "6.57|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.57",
      "strike": 6.57,
      "side": "NO",
-     "price": 0.36,
-     "p_win": 0.441837,
-     "edge": 0.065709,
-     "max_price": 0.38,
-     "offered": 515.5
+     "price": 0.23,
+     "p_win": 0.45589,
+     "edge": 0.213493,
+     "max_price": 0.39,
+     "offered": 500.0
     },
     "6.60|NO": {
      "key": "6.60|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.60",
      "strike": 6.6,
      "side": "NO",
-     "price": 0.45,
-     "p_win": 0.518367,
-     "edge": 0.051042,
-     "max_price": 0.46,
-     "offered": 512.5
+     "price": 0.35,
+     "p_win": 0.538501,
+     "edge": 0.172576,
+     "max_price": 0.48,
+     "offered": 500.0
+    },
+    "6.63|NO": {
+     "key": "6.63|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.63",
+     "strike": 6.63,
+     "side": "NO",
+     "price": 0.44,
+     "p_win": 0.624681,
+     "edge": 0.167433,
+     "max_price": 0.56,
+     "offered": 500.0
+    },
+    "6.66|NO": {
+     "key": "6.66|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.66",
+     "strike": 6.66,
+     "side": "NO",
+     "price": 0.55,
+     "p_win": 0.693524,
+     "edge": 0.126199,
+     "max_price": 0.63,
+     "offered": 500.0
+    },
+    "6.69|NO": {
+     "key": "6.69|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.69",
+     "strike": 6.69,
+     "side": "NO",
+     "price": 0.65,
+     "p_win": 0.756247,
+     "edge": 0.090322,
+     "max_price": 0.7,
+     "offered": 500.0
+    },
+    "6.72|NO": {
+     "key": "6.72|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.72",
+     "strike": 6.72,
+     "side": "NO",
+     "price": 0.75,
+     "p_win": 0.809281,
+     "edge": 0.046156,
+     "max_price": 0.75,
+     "offered": 500.0
     }
    },
    "acked": {},
@@ -111,7 +155,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-20T05:57:48+00:00"
+  "checked_utc": "2026-10-20T10:16:41+00:00"
  },
  "pairing_replied": [
   35259757
