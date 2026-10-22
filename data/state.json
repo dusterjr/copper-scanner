@@ -12,15 +12,26 @@
  "weeks": {
   "KXCOPPERW-26OCT2317": {
    "alerted": {
+    "6.39|NO": {
+     "key": "6.39|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.39",
+     "strike": 6.39,
+     "side": "NO",
+     "price": 0.13,
+     "p_win": 0.2743,
+     "edge": 0.136383,
+     "max_price": 0.22,
+     "offered": 133.0
+    },
     "6.42|NO": {
      "key": "6.42|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.42",
      "strike": 6.42,
      "side": "NO",
-     "price": 0.13,
-     "p_win": 0.192974,
-     "edge": 0.055057,
-     "max_price": 0.14,
+     "price": 0.19,
+     "p_win": 0.405598,
+     "edge": 0.204825,
+     "max_price": 0.34,
      "offered": 133.0
     },
     "6.45|NO": {
@@ -28,21 +39,21 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.45",
      "strike": 6.45,
      "side": "NO",
-     "price": 0.18,
-     "p_win": 0.260692,
-     "edge": 0.07036,
-     "max_price": 0.2,
-     "offered": 200.0
+     "price": 0.29,
+     "p_win": 0.558779,
+     "edge": 0.254366,
+     "max_price": 0.5,
+     "offered": 700.0
     },
     "6.48|NO": {
      "key": "6.48|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.48",
      "strike": 6.48,
      "side": "NO",
-     "price": 0.25,
-     "p_win": 0.337576,
-     "edge": 0.074451,
-     "max_price": 0.28,
+     "price": 0.37,
+     "p_win": 0.688041,
+     "edge": 0.301724,
+     "max_price": 0.63,
      "offered": 200.0
     },
     "6.51|NO": {
@@ -50,10 +61,10 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.51",
      "strike": 6.51,
      "side": "NO",
-     "price": 0.34,
-     "p_win": 0.432281,
-     "edge": 0.076573,
-     "max_price": 0.37,
+     "price": 0.5,
+     "p_win": 0.784224,
+     "edge": 0.266724,
+     "max_price": 0.73,
      "offered": 200.0
     },
     "6.54|NO": {
@@ -61,32 +72,54 @@
      "ticker": "KXCOPPERW-26OCT2317-T6.54",
      "strike": 6.54,
      "side": "NO",
-     "price": 0.41,
-     "p_win": 0.543279,
-     "edge": 0.116346,
-     "max_price": 0.48,
-     "offered": 701.0
+     "price": 0.62,
+     "p_win": 0.872265,
+     "edge": 0.235773,
+     "max_price": 0.82,
+     "offered": 200.0
     },
     "6.57|NO": {
      "key": "6.57|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.57",
      "strike": 6.57,
      "side": "NO",
-     "price": 0.51,
-     "p_win": 0.650204,
-     "edge": 0.122711,
-     "max_price": 0.59,
-     "offered": 133.0
+     "price": 0.73,
+     "p_win": 0.919084,
+     "edge": 0.175287,
+     "max_price": 0.87,
+     "offered": 252.0
     },
     "6.60|NO": {
      "key": "6.60|NO",
      "ticker": "KXCOPPERW-26OCT2317-T6.60",
      "strike": 6.6,
      "side": "NO",
-     "price": 0.66,
-     "p_win": 0.730143,
-     "edge": 0.054435,
-     "max_price": 0.67,
+     "price": 0.82,
+     "p_win": 0.954707,
+     "edge": 0.124375,
+     "max_price": 0.9,
+     "offered": 200.0
+    },
+    "6.63|NO": {
+     "key": "6.63|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.63",
+     "strike": 6.63,
+     "side": "NO",
+     "price": 0.9,
+     "p_win": 0.975064,
+     "edge": 0.068764,
+     "max_price": 0.93,
+     "offered": 700.0
+    },
+    "6.66|NO": {
+     "key": "6.66|NO",
+     "ticker": "KXCOPPERW-26OCT2317-T6.66",
+     "strike": 6.66,
+     "side": "NO",
+     "price": 0.92,
+     "p_win": 0.985751,
+     "edge": 0.060599,
+     "max_price": 0.94,
      "offered": 200.0
     }
    },
@@ -100,7 +133,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-22T04:34:41+00:00"
+  "checked_utc": "2026-10-22T10:05:15+00:00"
  },
  "pairing_replied": [
   35259757
