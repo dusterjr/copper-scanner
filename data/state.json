@@ -218,9 +218,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.39",
      "strike": 6.39,
      "side": "NO",
-     "price": 0.15,
+     "price": 0.14,
      "p_win": 0.257622,
-     "edge": 0.098697,
+     "edge": 0.109194,
      "max_price": 0.2,
      "offered": 500.0
     },
@@ -229,9 +229,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.42",
      "strike": 6.42,
      "side": "NO",
-     "price": 0.18,
+     "price": 0.17,
      "p_win": 0.320122,
-     "edge": 0.12979,
+     "edge": 0.140245,
      "max_price": 0.26,
      "offered": 500.0
     },
@@ -251,9 +251,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.48",
      "strike": 6.48,
      "side": "NO",
-     "price": 0.28,
+     "price": 0.27,
      "p_win": 0.45122,
-     "edge": 0.157108,
+     "edge": 0.167423,
      "max_price": 0.39,
      "offered": 500.0
     },
@@ -273,9 +273,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.54",
      "strike": 6.54,
      "side": "NO",
-     "price": 0.41,
+     "price": 0.4,
      "p_win": 0.576728,
-     "edge": 0.149795,
+     "edge": 0.159928,
      "max_price": 0.51,
      "offered": 500.0
     },
@@ -284,9 +284,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.57",
      "strike": 6.57,
      "side": "NO",
-     "price": 0.48,
+     "price": 0.47,
      "p_win": 0.639736,
-     "edge": 0.142264,
+     "edge": 0.152299,
      "max_price": 0.58,
      "offered": 500.0
     },
@@ -295,9 +295,9 @@
      "ticker": "KXCOPPERW-26NOV0617-T6.60",
      "strike": 6.6,
      "side": "NO",
-     "price": 0.55,
+     "price": 0.54,
      "p_win": 0.699695,
-     "edge": 0.13237,
+     "edge": 0.142307,
      "max_price": 0.64,
      "offered": 500.0
     },
@@ -344,6 +344,17 @@
      "edge": 0.052113,
      "max_price": 0.81,
      "offered": 500.0
+    },
+    "6.75|NO": {
+     "key": "6.75|NO",
+     "ticker": "KXCOPPERW-26NOV0617-T6.75",
+     "strike": 6.75,
+     "side": "NO",
+     "price": 0.84,
+     "p_win": 0.893801,
+     "edge": 0.044393,
+     "max_price": 0.84,
+     "offered": 500.0
     }
    },
    "acked": {},
@@ -356,7 +367,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-10-31T21:27:20+00:00"
+  "checked_utc": "2026-11-01T01:04:07+00:00"
  },
  "pairing_replied": [
   35259757
