@@ -366,8 +366,8 @@
   "token_set": true,
   "token_looks_valid": true,
   "chat_id_set": true,
-  "last_error": null,
-  "checked_utc": "2026-11-05T06:34:56+00:00"
+  "last_error": "sendMessage: couldn't reach Telegram (ReadTimeout)",
+  "checked_utc": "2026-11-05T15:25:01+00:00"
  },
  "pairing_replied": [
   35259757
