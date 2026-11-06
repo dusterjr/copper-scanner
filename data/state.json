@@ -3,11 +3,11 @@
   "since": null,
   "alerted": false
  },
- "current_week": "KXCOPPERW-26NOV0617",
+ "current_week": "KXCOPPERW-26NOV1317",
  "window": {
-  "week": "KXCOPPERW-26NOV0617",
-  "in_window": false,
-  "reopen_utc": "2026-11-01T23:00:00+00:00"
+  "week": "KXCOPPERW-26NOV1317",
+  "in_window": true,
+  "reopen_utc": "2026-11-08T23:00:00+00:00"
  },
  "weeks": {
   "KXCOPPERW-26OCT2317": {
@@ -316,6 +316,156 @@
    "acked": {},
    "summary_sent": true,
    "method": "plain"
+  },
+  "KXCOPPERW-26NOV1317": {
+   "alerted": {
+    "6.20|NO": {
+     "key": "6.20|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.20",
+     "strike": 6.2,
+     "side": "NO",
+     "price": 0.26,
+     "p_win": 0.321338,
+     "edge": 0.04787,
+     "max_price": 0.26,
+     "offered": 500.0
+    },
+    "6.23|NO": {
+     "key": "6.23|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.23",
+     "strike": 6.23,
+     "side": "NO",
+     "price": 0.32,
+     "p_win": 0.387734,
+     "edge": 0.052502,
+     "max_price": 0.33,
+     "offered": 500.0
+    },
+    "6.26|NO": {
+     "key": "6.26|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.26",
+     "strike": 6.26,
+     "side": "NO",
+     "price": 0.36,
+     "p_win": 0.454131,
+     "edge": 0.078003,
+     "max_price": 0.39,
+     "offered": 500.0
+    },
+    "6.29|NO": {
+     "key": "6.29|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.29",
+     "strike": 6.29,
+     "side": "NO",
+     "price": 0.41,
+     "p_win": 0.525089,
+     "edge": 0.098156,
+     "max_price": 0.46,
+     "offered": 500.0
+    },
+    "6.32|NO": {
+     "key": "6.32|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.32",
+     "strike": 6.32,
+     "side": "NO",
+     "price": 0.48,
+     "p_win": 0.58591,
+     "edge": 0.088438,
+     "max_price": 0.52,
+     "offered": 500.0
+    },
+    "6.35|NO": {
+     "key": "6.35|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.35",
+     "strike": 6.35,
+     "side": "NO",
+     "price": 0.54,
+     "p_win": 0.649772,
+     "edge": 0.092384,
+     "max_price": 0.59,
+     "offered": 500.0
+    },
+    "6.38|NO": {
+     "key": "6.38|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.38",
+     "strike": 6.38,
+     "side": "NO",
+     "price": 0.6,
+     "p_win": 0.710086,
+     "edge": 0.093286,
+     "max_price": 0.65,
+     "offered": 500.0
+    },
+    "6.41|NO": {
+     "key": "6.41|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.41",
+     "strike": 6.41,
+     "side": "NO",
+     "price": 0.65,
+     "p_win": 0.761784,
+     "edge": 0.095859,
+     "max_price": 0.7,
+     "offered": 500.0
+    },
+    "6.44|NO": {
+     "key": "6.44|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.44",
+     "strike": 6.44,
+     "side": "NO",
+     "price": 0.71,
+     "p_win": 0.808414,
+     "edge": 0.084001,
+     "max_price": 0.75,
+     "offered": 500.0
+    },
+    "6.47|NO": {
+     "key": "6.47|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.47",
+     "strike": 6.47,
+     "side": "NO",
+     "price": 0.76,
+     "p_win": 0.841865,
+     "edge": 0.069097,
+     "max_price": 0.79,
+     "offered": 500.0
+    },
+    "6.50|NO": {
+     "key": "6.50|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.50",
+     "strike": 6.5,
+     "side": "NO",
+     "price": 0.8,
+     "p_win": 0.875824,
+     "edge": 0.064624,
+     "max_price": 0.82,
+     "offered": 500.0
+    },
+    "6.53|NO": {
+     "key": "6.53|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.53",
+     "strike": 6.53,
+     "side": "NO",
+     "price": 0.84,
+     "p_win": 0.904714,
+     "edge": 0.055306,
+     "max_price": 0.85,
+     "offered": 500.0
+    },
+    "6.56|NO": {
+     "key": "6.56|NO",
+     "ticker": "KXCOPPERW-26NOV1317-T6.56",
+     "strike": 6.56,
+     "side": "NO",
+     "price": 0.87,
+     "p_win": 0.921439,
+     "edge": 0.043522,
+     "max_price": 0.87,
+     "offered": 500.0
+    }
+   },
+   "acked": {},
+   "summary_sent": true,
+   "method": "plain"
   }
  },
  "telegram": {
@@ -323,7 +473,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-11-06T17:55:20+00:00"
+  "checked_utc": "2026-11-06T23:02:56+00:00"
  },
  "pairing_replied": [
   35259757
