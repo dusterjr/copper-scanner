@@ -3,8 +3,8 @@
  "status": "ok",
  "error": null,
  "series": "KXCOPPERW",
- "run_utc": "2026-11-07T20:50:48+00:00",
- "last_ok_utc": "2026-11-07T20:50:48+00:00",
+ "run_utc": "2026-11-08T00:29:19+00:00",
+ "last_ok_utc": "2026-11-08T00:29:19+00:00",
  "week": "KXCOPPERW-26NOV1317",
  "open_utc": "2026-11-06T22:00:00+00:00",
  "close_utc": "2026-11-13T22:00:00+00:00",
@@ -21,9 +21,9 @@
  "comex": 6.2375,
  "comex_label": "COMEX, last price",
  "comex_time_utc": "2026-11-06T22:00:00+00:00",
- "settlement": null,
+ "settlement": 6.34,
  "settlement_week": "KXCOPPERW-26NOV0617",
- "settlement_note": "not settled yet",
+ "settlement_note": "settled",
  "daily_move": 1.0918,
  "horizon": 5,
  "n_windows": 1973,
@@ -43,9 +43,9 @@
   {
    "ticker": "KXCOPPERW-26NOV1317-T5.42",
    "strike": 5.42,
-   "yes_bid": 0.91,
+   "yes_bid": 0.94,
    "yes_ask": 1.0,
-   "yes_bid_size": 13.5,
+   "yes_bid_size": 50.0,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9929042067916878,
    "p_plain": 0.994931576279777
@@ -65,7 +65,7 @@
    "strike": 5.48,
    "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 12.5,
+   "yes_bid_size": 13.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9918905220476432,
    "p_plain": 0.994931576279777
@@ -73,9 +73,9 @@
   {
    "ticker": "KXCOPPERW-26NOV1317-T5.51",
    "strike": 5.51,
-   "yes_bid": 0.94,
+   "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 50.0,
+   "yes_bid_size": 12.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9913836796756209,
    "p_plain": 0.994931576279777
@@ -83,9 +83,9 @@
   {
    "ticker": "KXCOPPERW-26NOV1317-T5.54",
    "strike": 5.54,
-   "yes_bid": 0.91,
+   "yes_bid": 0.94,
    "yes_ask": 1.0,
-   "yes_bid_size": 13.5,
+   "yes_bid_size": 50.0,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9913836796756209,
    "p_plain": 0.99341104916371
@@ -95,7 +95,7 @@
    "strike": 5.57,
    "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 13.5,
+   "yes_bid_size": 11.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9908768373035985,
    "p_plain": 0.99341104916371
@@ -105,7 +105,7 @@
    "strike": 5.6,
    "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 12.5,
+   "yes_bid_size": 13.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9903699949315763,
    "p_plain": 0.9929042067916878
@@ -115,7 +115,7 @@
    "strike": 5.63,
    "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 12.5,
+   "yes_bid_size": 11.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9898631525595539,
    "p_plain": 0.9918905220476432
@@ -125,7 +125,7 @@
    "strike": 5.66,
    "yes_bid": 0.91,
    "yes_ask": 1.0,
-   "yes_bid_size": 11.5,
+   "yes_bid_size": 12.5,
    "yes_ask_size": 0.0,
    "p_rescaled": 0.9888494678155094,
    "p_plain": 0.9908768373035985
@@ -186,7 +186,7 @@
    "yes_bid": 0.95,
    "yes_ask": 0.99,
    "yes_bid_size": 500.0,
-   "yes_ask_size": 668.5,
+   "yes_ask_size": 670.5,
    "p_rescaled": 0.9700963000506843,
    "p_plain": 0.974657881398885
   },
@@ -306,7 +306,7 @@
    "yes_bid": 0.74,
    "yes_ask": 0.76,
    "yes_bid_size": 500.0,
-   "yes_ask_size": 50.0,
+   "yes_ask_size": 100.0,
    "p_rescaled": 0.5798276735935124,
    "p_plain": 0.6300050684237202
   },
@@ -314,9 +314,9 @@
    "ticker": "KXCOPPERW-26NOV1317-T6.23",
    "strike": 6.23,
    "yes_bid": 0.69,
-   "yes_ask": 0.71,
+   "yes_ask": 0.7,
    "yes_bid_size": 500.0,
-   "yes_ask_size": 100.0,
+   "yes_ask_size": 50.0,
    "p_rescaled": 0.5103902686264572,
    "p_plain": 0.5600608210846427
   },
@@ -326,7 +326,7 @@
    "yes_bid": 0.63,
    "yes_ask": 0.65,
    "yes_bid_size": 500.0,
-   "yes_ask_size": 50.0,
+   "yes_ask_size": 100.0,
    "p_rescaled": 0.44399391789153575,
    "p_plain": 0.4875823618854537
   },
