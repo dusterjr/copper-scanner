@@ -424,41 +424,7 @@
    "method": "plain"
   },
   "KXCOPPERW-26NOV2017": {
-   "alerted": {
-    "6.05|NO": {
-     "key": "6.05|NO",
-     "ticker": "KXCOPPERW-26NOV2017-T6.05",
-     "strike": 6.05,
-     "side": "NO",
-     "price": 0.3,
-     "p_win": 0.364004,
-     "edge": 0.049304,
-     "max_price": 0.3,
-     "offered": 501.0
-    },
-    "6.08|NO": {
-     "key": "6.08|NO",
-     "ticker": "KXCOPPERW-26NOV2017-T6.08",
-     "strike": 6.08,
-     "side": "NO",
-     "price": 0.37,
-     "p_win": 0.434783,
-     "edge": 0.048466,
-     "max_price": 0.37,
-     "offered": 501.0
-    },
-    "6.11|NO": {
-     "key": "6.11|NO",
-     "ticker": "KXCOPPERW-26NOV2017-T6.11",
-     "strike": 6.11,
-     "side": "NO",
-     "price": 0.44,
-     "p_win": 0.5091,
-     "edge": 0.051852,
-     "max_price": 0.45,
-     "offered": 501.0
-    }
-   },
+   "alerted": {},
    "acked": {},
    "summary_sent": true,
    "method": "plain"
@@ -469,7 +435,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-11-14T17:56:40+00:00"
+  "checked_utc": "2026-11-14T22:17:46+00:00"
  },
  "pairing_replied": [
   35259757
