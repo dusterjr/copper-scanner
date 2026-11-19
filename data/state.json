@@ -430,10 +430,10 @@
      "ticker": "KXCOPPERW-26NOV2017-T5.60",
      "strike": 5.6,
      "side": "NO",
-     "price": 0.26,
-     "p_win": 0.323085,
-     "edge": 0.049617,
-     "max_price": 0.26,
+     "price": 0.14,
+     "p_win": 0.22267,
+     "edge": 0.074242,
+     "max_price": 0.17,
      "offered": 100.0
     },
     "5.63|NO": {
@@ -441,77 +441,77 @@
      "ticker": "KXCOPPERW-26NOV2017-T5.63",
      "strike": 5.63,
      "side": "NO",
-     "price": 0.31,
-     "p_win": 0.430948,
-     "edge": 0.105975,
-     "max_price": 0.37,
-     "offered": 5.0
+     "price": 0.19,
+     "p_win": 0.351637,
+     "edge": 0.150864,
+     "max_price": 0.29,
+     "offered": 100.0
     },
     "5.66|NO": {
      "key": "5.66|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.66",
      "strike": 5.66,
      "side": "NO",
-     "price": 0.39,
-     "p_win": 0.553931,
-     "edge": 0.147278,
-     "max_price": 0.49,
-     "offered": 5.0
+     "price": 0.26,
+     "p_win": 0.518892,
+     "edge": 0.245424,
+     "max_price": 0.46,
+     "offered": 600.0
     },
     "5.69|NO": {
      "key": "5.69|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.69",
      "strike": 5.69,
      "side": "NO",
-     "price": 0.48,
-     "p_win": 0.674899,
-     "edge": 0.177427,
-     "max_price": 0.61,
-     "offered": 100.0
+     "price": 0.34,
+     "p_win": 0.678589,
+     "edge": 0.322881,
+     "max_price": 0.62,
+     "offered": 505.0
     },
     "5.72|NO": {
      "key": "5.72|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.72",
      "strike": 5.72,
      "side": "NO",
-     "price": 0.57,
-     "p_win": 0.762601,
-     "edge": 0.175444,
-     "max_price": 0.7,
-     "offered": 100.0
+     "price": 0.44,
+     "p_win": 0.787406,
+     "edge": 0.330158,
+     "max_price": 0.73,
+     "offered": 500.0
     },
     "5.75|NO": {
      "key": "5.75|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.75",
      "strike": 5.75,
      "side": "NO",
-     "price": 0.65,
-     "p_win": 0.837702,
-     "edge": 0.171777,
-     "max_price": 0.78,
-     "offered": 101.0
+     "price": 0.54,
+     "p_win": 0.879093,
+     "edge": 0.321705,
+     "max_price": 0.82,
+     "offered": 500.0
     },
     "5.78|NO": {
      "key": "5.78|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.78",
      "strike": 5.78,
      "side": "NO",
-     "price": 0.72,
-     "p_win": 0.881048,
-     "edge": 0.146936,
-     "max_price": 0.83,
-     "offered": 101.0
+     "price": 0.65,
+     "p_win": 0.932494,
+     "edge": 0.266569,
+     "max_price": 0.88,
+     "offered": 500.0
     },
     "5.81|NO": {
      "key": "5.81|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.81",
      "strike": 5.81,
      "side": "NO",
-     "price": 0.78,
-     "p_win": 0.923891,
-     "edge": 0.131879,
-     "max_price": 0.87,
-     "offered": 1.0
+     "price": 0.75,
+     "p_win": 0.965239,
+     "edge": 0.202114,
+     "max_price": 0.92,
+     "offered": 500.0
     },
     "5.84|NO": {
      "key": "5.84|NO",
@@ -519,9 +519,9 @@
      "strike": 5.84,
      "side": "NO",
      "price": 0.8,
-     "p_win": 0.955141,
-     "edge": 0.143941,
-     "max_price": 0.9,
+     "p_win": 0.982872,
+     "edge": 0.171672,
+     "max_price": 0.93,
      "offered": 8.0
     },
     "5.87|NO": {
@@ -529,22 +529,22 @@
      "ticker": "KXCOPPERW-26NOV2017-T5.87",
      "strike": 5.87,
      "side": "NO",
-     "price": 0.8,
-     "p_win": 0.970766,
-     "edge": 0.159566,
-     "max_price": 0.92,
-     "offered": 8.0
+     "price": 0.89,
+     "p_win": 0.988413,
+     "edge": 0.09156,
+     "max_price": 0.94,
+     "offered": 100.0
     },
     "5.90|NO": {
      "key": "5.90|NO",
      "ticker": "KXCOPPERW-26NOV2017-T5.90",
      "strike": 5.9,
      "side": "NO",
-     "price": 0.93,
-     "p_win": 0.980343,
-     "edge": 0.045786,
-     "max_price": 0.93,
-     "offered": 1.0
+     "price": 0.94,
+     "p_win": 0.992443,
+     "edge": 0.048495,
+     "max_price": 0.94,
+     "offered": 586.0
     }
    },
    "acked": {},
@@ -557,7 +557,7 @@
   "token_looks_valid": true,
   "chat_id_set": true,
   "last_error": null,
-  "checked_utc": "2026-11-19T03:17:28+00:00"
+  "checked_utc": "2026-11-19T12:54:10+00:00"
  },
  "pairing_replied": [
   35259757
