@@ -258,3 +258,9 @@ run_utc,mode,method,role,strike,side,price,p_win,edge,max_price,offered,spot,spo
 2026-11-24T00:45:59+00:00,weekday,rescaled,paper,5.84,NO,0.79,0.868514,0.066901,0.81,100.0,5.589,comex
 2026-11-24T00:45:59+00:00,weekday,rescaled,paper,5.87,NO,0.82,0.894207,0.063875,0.84,100.0,5.589,comex
 2026-11-24T00:45:59+00:00,weekday,rescaled,paper,5.9,NO,0.86,0.911335,0.042907,0.86,100.0,5.589,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.39,YES,0.76,0.884189,0.111421,0.83,100.0,5.5315,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.42,YES,0.71,0.841893,0.11748,0.79,100.0,5.5315,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.45,YES,0.65,0.768882,0.102957,0.71,100.0,5.5315,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.48,YES,0.6,0.691843,0.075043,0.63,100.0,5.5315,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.51,YES,0.54,0.605237,0.047849,0.54,100.0,5.5315,comex
+2026-11-24T10:51:28+00:00,weekday,plain,weekday_paper,5.75,NO,0.89,0.939074,0.042221,0.89,100.0,5.5315,comex
