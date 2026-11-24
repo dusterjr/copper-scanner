@@ -177,3 +177,4 @@ run_utc,week,mode,status,spot,spot_source,comex,settlement,daily_move,horizon,n_
 2026-11-22T21:42:49+00:00,KXCOPPERW-26NOV2714,weekend,ok,5.485,comex,5.485,5.55,1.5027,5,17,17,1,
 2026-11-23T02:37:59+00:00,KXCOPPERW-26NOV2714,weekday,ok,5.5055,comex,5.5055,5.55,1.5253,5,5,5,1,
 2026-11-23T12:19:07+00:00,KXCOPPERW-26NOV2714,weekday,ok,5.518,comex,5.518,5.55,1.5098,4,13,13,1,
+2026-11-24T00:45:59+00:00,KXCOPPERW-26NOV2714,weekday,ok,5.589,comex,5.589,5.55,1.6129,4,17,17,1,
