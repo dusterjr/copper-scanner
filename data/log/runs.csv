@@ -190,3 +190,4 @@ run_utc,week,mode,status,spot,spot_source,comex,settlement,daily_move,horizon,n_
 2026-11-27T21:08:43+00:00,KXCOPPERW-26NOV2714,,waiting,,,,,,,,,0,Next week's copper contracts aren't open yet.
 2026-11-28T03:51:12+00:00,KXCOPPERW-26DEC0417,weekend,ok,5.601,comex,5.601,5.61,1.9885,5,14,14,1,
 2026-11-28T12:54:25+00:00,KXCOPPERW-26DEC0417,weekend,ok,5.601,comex,5.601,5.61,1.9102,5,13,13,1,
+2026-11-28T20:52:20+00:00,KXCOPPERW-26DEC0417,weekend,ok,5.601,comex,5.601,5.61,1.9102,5,13,13,1,
